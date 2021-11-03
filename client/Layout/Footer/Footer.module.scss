@@ -1,12 +1,36 @@
 .footer {
   position: fixed;
+  z-index: 0;
   bottom: 0;
   left: 0;
-
   width: 100vw;
-  z-index: 0;
+}
 
-  > * {
-    margin: 1rem;
+.footer > div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: 'socialLinks info siteMap backToTop' 1fr / 1fr 1fr 1fr 12rem;
+  .social {
+    grid-area: socialLinks;
+  }
+  .info {
+    grid-area: info;
+  }
+  .siteMap {
+    grid-area: siteMap;
+  }
+  .backToTop {
+    grid-area: backToTop;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .footer > div {
+    grid-template:
+      'socialLinks socialLinks backToTop' 1fr
+      'info siteMap siteMap' 1fr
+      'info siteMap siteMap' 1fr / 1fr 1fr 1fr;
   }
 }

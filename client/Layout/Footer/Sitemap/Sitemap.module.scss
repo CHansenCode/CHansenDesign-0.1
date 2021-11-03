@@ -1,0 +1,9 @@
+.ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  li {
+    margin-bottom: 0.2rem;
+  }
+}

@@ -1,9 +1,15 @@
-$header-height: 3rem;
+//
+//
+$header-height: 5rem;
 $footer-height: 10rem;
+//
+//
 
-//childs of ROOT ** html body #__next { .header, .main, .footer } **
+//parents: html body #__next { .header, .main, .footer }
 
 .main {
+  // .main { section, section, section... }
+
   position: relative;
   z-index: 1;
 
@@ -16,11 +22,11 @@ $footer-height: 10rem;
   }
 
   // .main section {}
-  :nth-child(1) {
+  > :nth-child(1) {
     //distance to header
     padding-top: 5vw;
   }
-  :nth-last-child(1) {
+  > :nth-last-child(1) {
     //before footer
     padding-bottom: 5rem;
   }
@@ -38,9 +44,11 @@ $footer-height: 10rem;
   padding-top: $header-height;
   margin-bottom: $footer-height;
 }
+
 .header {
   height: $header-height;
 }
+
 .footer {
   // Doesn't scale - ( use strict composition rules & specific mobile @rules )
   height: $footer-height;

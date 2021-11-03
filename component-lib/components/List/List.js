@@ -1,14 +1,24 @@
 import React from 'react';
 
-export const List = ({ children, horizontal }) => {
+export const List = ({ margin, padding, className, children, horizontal }) => {
   const propStyle = {
     display: horizontal && 'flex',
+    margin: margin,
+    padding: padding,
   };
-  return <ul style={({ ...inline }, { ...propStyle })}>{children}</ul>;
+
+  return (
+    <ul className={className} style={({ ...inline }, { ...propStyle })}>
+      {children}
+    </ul>
+  );
+};
+
+List.defaultProps = {
+  margin: '0',
+  padding: '0',
 };
 
 const inline = {
-  margin: '0',
-  padding: '0',
   width: 'min-content',
 };
