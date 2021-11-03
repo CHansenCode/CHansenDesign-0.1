@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { useState, useEffect } from 'react';
+import { Section, Button, Form, Textarea } from 'chansencode-lib';
+import { Input } from '../components';
 
-import { Section, Button, Form, Input, Textarea } from 'chansencode-lib';
-
-const form = ({ colors }) => {
+const Forms = () => {
   const [formData, setFormData] = useState({
     name: '',
     contactInfo: '',
@@ -17,7 +16,6 @@ const form = ({ colors }) => {
   });
   const [allValid, setAllValid] = useState(false);
 
-  //#region ****************************************************** VALIDATION
   //original forbidden, /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?¤]+/
   useEffect(() => {
     // all but   -   for double-names
@@ -55,11 +53,11 @@ const form = ({ colors }) => {
     valid.name == true && valid.contactInfo == true && valid.message == true
       ? setAllValid(true)
       : setAllValid(false);
-  }, [valid]);
-  //#endregion ********************************************************************
+  }, [valid, allValid]);
 
-  function onSubmit(formData) {}
-
+  function onSubmit() {
+    console.log();
+  }
   function clear() {
     setFormData({ name: '', contactInfo: '', message: '' });
     setValid({ name: false, contactInfo: false, message: false });
@@ -68,7 +66,7 @@ const form = ({ colors }) => {
   return (
     <Section center>
       <Form title="contact form" allValid={allValid}>
-        {/* <Input
+        <Input
           label="name"
           id="name"
           required
@@ -78,8 +76,8 @@ const form = ({ colors }) => {
           onChange={e =>
             setFormData({ ...formData, [e.target.id]: e.target.value })
           }
-        /> */}
-        {/* <Input
+        />
+        <Input
           label="E-mail"
           id="contactInfo"
           required
@@ -89,8 +87,8 @@ const form = ({ colors }) => {
           onChange={e =>
             setFormData({ ...formData, [e.target.id]: e.target.value })
           }
-        /> */}
-        {/* <Textarea
+        />
+        <Textarea
           label="message"
           id="message"
           required
@@ -101,16 +99,16 @@ const form = ({ colors }) => {
           onChange={e =>
             setFormData({ ...formData, [e.target.id]: e.target.value })
           }
-        /> */}
+        />
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div>
-            {/* {allValid && (
+            {allValid && (
               <Button text="Submit" type="green" onClick={onSubmit} />
-            )} */}
+            )}
           </div>
           <div>
-            {formData.name.length ||
+            {formData.name.length > 0 ||
             formData.contactInfo.length > 0 ||
             formData.message.length > 0 ? (
               <Button type="yellow" onClick={() => clear()} text="Reset" />
@@ -122,4 +120,4 @@ const form = ({ colors }) => {
   );
 };
 
-export default form;
+export default Forms;

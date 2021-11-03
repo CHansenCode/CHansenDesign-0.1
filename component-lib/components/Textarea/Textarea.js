@@ -15,7 +15,6 @@ export const Textarea = ({
   rows,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-
   function onFocus() {
     setIsFocused(true);
   }

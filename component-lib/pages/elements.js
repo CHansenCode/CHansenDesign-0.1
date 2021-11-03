@@ -1,6 +1,6 @@
 import { Section, Button, Input, Textarea } from 'chansencode-lib';
 
-export const elements = () => {
+export const Elements = () => {
   return (
     <>
       <section title="Button" center></section>
@@ -9,4 +9,4 @@ export const elements = () => {
   );
 };
 
-export default elements;
+export default Elements;

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import css from './Input.module.scss';
 
@@ -16,7 +14,6 @@ export const Input = ({
   onChange,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-
   function onFocus() {
     setIsFocused(true);
   }
