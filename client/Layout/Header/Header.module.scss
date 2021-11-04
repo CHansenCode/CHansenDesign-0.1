@@ -1,10 +1,9 @@
 .header {
   position: fixed;
   z-index: 10;
-
   width: 100vw;
 
-  border: thin solid lightgray;
+  border-bottom: thin solid currentColor;
   box-shadow: 0 0 3rem -2.4rem currentColor;
 
   background: linear-gradient(
@@ -60,5 +59,37 @@
     font-weight: 400;
     margin: 0;
     padding: 0;
+  }
+}
+
+.threeWords {
+  border-left: thin solid;
+  border-right: thin solid;
+}
+
+.nav ul a li {
+  border: thin solid currentColor;
+}
+
+.nav li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 1rem;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.nav a:hover {
+  color: currentColor;
+  li {
+    box-shadow: inset -1rem -1rem 5rem -3.5rem currentColor;
+    color: currentColor;
   }
 }

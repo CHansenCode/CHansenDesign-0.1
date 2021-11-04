@@ -1,0 +1,21 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: thin solid lightgray;
+  border-radius: 50%;
+  height: 0.75rem;
+  width: 0.75rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  .tick {
+    opacity: 0.75;
+    color: green;
+  }
+
+  &:hover {
+    border: thin solid orange;
+    cursor: pointer;
+  }
+}

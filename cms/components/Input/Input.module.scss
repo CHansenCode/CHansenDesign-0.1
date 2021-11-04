@@ -1,0 +1,74 @@
+@import "/styles/colors";
+
+.container {
+  padding: 0;
+  margin: 0;
+
+  align-items: center;
+  .label {
+    opacity: 0.9;
+    letter-spacing: 0.75px;
+    color: $supportive;
+  }
+}
+
+.container .input {
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+}
+
+//hover
+.onHover {
+  position: relative;
+
+  height: 1rem;
+  width: 1rem;
+
+  border-radius: 50%;
+  border: thin solid currentColor;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.7;
+
+  span {
+    position: fixed;
+    z-index: 100;
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $interaction;
+    h5 {
+      color: $interaction;
+    }
+    span {
+      display: block;
+      background-color: #fff;
+    }
+  }
+}
+.onHover h5 {
+  padding-top: 0.15rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+.onHover span {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 1.5rem;
+
+  white-space: nowrap;
+
+  background-color: #fff;
+}
+.onHover:hover h5 {
+  color: $interaction;
+}
+.onHover:hover span {
+  display: inline-block;
+}

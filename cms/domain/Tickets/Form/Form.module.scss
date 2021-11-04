@@ -1,0 +1,53 @@
+@import "/styles/colors";
+
+.form {
+  background-color: #fff;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  h3 {
+    padding-bottom: 1rem;
+    font-weight: 500;
+    color: $interaction;
+  }
+}
+
+.form {
+  input,
+  textarea {
+    border: thin dashed currentColor;
+    border-bottom: thin dashed currentColor;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 16px;
+  }
+}
+
+.buttonWrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+
+  display: flex;
+
+  button {
+    padding: 1rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    background-color: #fff;
+  }
+  .create {
+    color: $true;
+  }
+  .patch {
+    color: rgba(50, 129, 57, 0.99);
+  }
+  .clear {
+    color: rgba(141, 140, 51, 0.99);
+  }
+  .delete {
+    margin-left: auto;
+    color: $fail;
+  }
+}

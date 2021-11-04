@@ -1,0 +1,22 @@
+.input {
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.5rem;
+
+  color: inherit;
+  border: thin solid transparent;
+  pointer-events: none;
+}
+
+.input:focus {
+  border: thin solid purple;
+  background-color: rgba(200, 200, 100, 0.1);
+}
+
+.isEditing {
+  border: thin dashed currentColor;
+  pointer-events: all;
+  background-color: rgb(238, 238, 238);
+  color: orangered;
+}

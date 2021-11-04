@@ -1,0 +1,60 @@
+@import "/styles/colors";
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  padding: 3vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h5 {
+    position: fixed;
+    top: 2vh;
+    right: 2vh;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0.1rem 0.1rem gray, -0.1 -0.1 gray;
+    pointer-events: none;
+    font-weight: 300;
+  }
+}
+
+//covers whole bg
+.closeButton {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
+  font-size: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  box-shadow: inset 0 0 5rem -5rem white;
+
+  background-color: rgba(0, 30, 50, 0.9);
+
+  &:hover {
+    border: none;
+    background-color: rgba(0, 30, 50, 0.9);
+    box-shadow: inset 0 0 5rem -4rem white;
+  }
+}

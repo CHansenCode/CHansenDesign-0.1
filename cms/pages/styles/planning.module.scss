@@ -1,0 +1,206 @@
+@import "../../styles/colors";
+
+// ___ rules
+.projectsContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  //individual projects
+  .project {
+    // ** PROJECTS
+    .project_header {
+      z-index: 6;
+      display: grid;
+      cursor: pointer;
+      &:hover {
+        border: solid $interaction;
+        box-shadow: inset 0 0 3rem -1.5rem $interaction;
+      }
+    }
+    .project_stageContainer {
+      padding: 1rem;
+    }
+  }
+
+  .projectContainer .project_stageContainer {
+    // ** STAGES
+    .stages_header {
+      z-index: 5;
+      display: grid;
+    }
+  }
+
+  .projectContainer .project_stageContainer .project_taskContainer {
+    // ** TASKS
+    .task_header {
+      z-index: 4;
+      display: grid;
+    }
+    .task_subtaskContainer {
+      .subtask {
+        z-index: 3;
+        border: thin solid $theme-border-light;
+      }
+    }
+  }
+}
+
+// ************ PROJECT
+.project {
+  position: relative;
+  margin-bottom: 1rem;
+
+  .project_header {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    border: solid;
+    display: grid;
+    grid-template: "a b" 1fr / 1fr auto;
+
+    .project_info {
+      > div {
+        display: flex;
+        align-items: flex-end;
+      }
+      .project_title {
+        color: $interaction;
+        padding-bottom: 0.25rem;
+      }
+      .project_users {
+        display: flex;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+        > h5 {
+          font-weight: 500;
+          margin: 0 0.25rem;
+        }
+      }
+      .project_body {
+        margin-bottom: 0.25rem;
+      }
+      .project_deadline {
+        padding-top: 0.25rem;
+      }
+    }
+
+    .project_diagrams {
+      display: flex;
+      > * {
+        height: 5rem;
+        width: 5rem;
+        margin-left: 1rem;
+        border: solid;
+        border-radius: 50%;
+        box-shadow: inset 0 0 3rem -2rem currentColor;
+      }
+    }
+  }
+  .project_stageContainer {
+    display: flex;
+  }
+}
+
+// ************ STAGE
+.stage {
+  margin-right: 1rem;
+  .stage_header {
+    position: relative;
+    display: grid;
+    grid-template:
+      "over divider" auto
+      "info divider" 1fr / 1fr auto;
+    .stage_header_over {
+      grid-area: over;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .stage_header_info {
+      grid-area: info;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 0 3rem -1.2rem currentColor;
+      border: thin solid $theme-border-light;
+    }
+    .stage_header_divider {
+      height: 100%;
+      padding-right: 1rem;
+      grid-area: divider;
+      border-right: thin dashed currentColor;
+    }
+  }
+  .stage_taskContainer {
+    margin: 0 0.5rem;
+    margin-top: -1.5rem;
+    padding-top: 1rem;
+    box-shadow: 0 0 3rem -2rem currentColor;
+  }
+}
+
+// ************ TASK
+.task {
+  margin-bottom: 0.75rem;
+  border: thin solid $theme-border-light;
+  box-shadow: 0 0 2rem -1.3rem currentColor;
+
+  .task_header {
+    display: grid;
+    grid-template:
+      "title circle" 1fr
+      "version circle" 1fr
+      "time time" 1fr / 1fr auto;
+
+    padding: 1rem;
+
+    box-shadow: 0 0 3rem -1rem currentColor;
+    border: $theme-border-light;
+    .task_header_title {
+      grid-area: title;
+      display: flex;
+      > p {
+        margin-right: 1rem;
+      }
+    }
+    .task_header_circle {
+      grid-area: circle;
+      height: 3rem;
+      width: 3rem;
+      border: solid;
+      border-radius: 50%;
+    }
+    .task_header_version {
+      grid-area: version;
+    }
+    .task_header_time {
+      grid-area: time;
+      display: flex;
+      h5 {
+        width: 50%;
+      }
+    }
+  }
+
+  .task_subtasks_container {
+    padding: 1rem;
+  }
+}
+
+// ************ SUBTASK
+.subtask {
+  border: solid $theme-border-light;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  box-shadow: 0 0 1rem -0.7rem currentColor;
+  h5 {
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  transition: 0.2s ease;
+  &:hover {
+    box-shadow: 0 0 1.2rem -0.6rem $theme-primary;
+    border: solid $interaction;
+  }
+}

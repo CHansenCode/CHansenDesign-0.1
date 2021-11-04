@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap");
+
+@import "./reset";
+@import "./colors";
+@import "./fonts";
+@import "./globals";
+@import "./config";
+@import "./scrollbar";
+@import "./form";
+
+//#region *****************************************************************    ROOT SETUP    ****************************************************************************************************
+
+// Structure
+// <html>
+//    <body>
+//       <div id="_app"> app-root
+//         <Layout>
+//          <Nav>       fixed
+//          <Modal>     fixed
+//          <Footer>*   fixed
+//          <main>      relative root for pages
+//            <Page>
+//              <Section>
+//                <Component />
+//              </Section>
+//
+//
+// *no footer on cms
+
+// ***** GLOBAL
+html {
+  font-size: 16px;
+}
+
+html * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+
+  border-color: $theme-primary;
+  border-width: thin !important;
+  color: $theme-primary;
+}
+
+//APP ROOT
+
+html > body > div {
+  > header {
+    width: $nav-width;
+    position: fixed;
+  }
+
+  > main {
+    position: relative;
+    min-height: 100vh;
+
+    margin-left: $nav-width;
+
+    //style
+    background: linear-gradient(0deg, rgba(220, 240, 240, 1), rgba(253, 253, 253, 1));
+    box-shadow: 0 0 15rem -8rem currentColor;
+
+    > section {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  > Footer {
+    background-color: $footer-bg-color;
+  }
+}
+
+//#endregion ************************************************************************************************************************************************************************************
+//#region *****************************************************************    Root Media Queries    ********************************************************************************************
+@media screen and (max-width: 1240px) {
+  html > body > div {
+    > main {
+      > section {
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+    > Footer {
+      background-color: $footer-bg-color;
+    }
+  }
+}
+@media screen and (max-width: 1040px) {
+  html > body > div {
+    > main {
+      > section {
+        max-width: 100%;
+      }
+    }
+    > Footer {
+      background-color: $footer-bg-color;
+    }
+  }
+}
+@media screen and (max-width: 840px) {
+  html > body > div {
+    > main {
+      margin-left: 0;
+      > section {
+        max-width: 100%;
+      }
+    }
+    > Footer {
+      background-color: $footer-bg-color;
+    }
+  }
+}
+//#endregion ************************************************************************************************************************************************************************************
+//#region *****************************************************************    Elements defaults   **********************************************************************************************
+
+//BUTTON & LI
+button,
+li {
+  padding: 0.25rem;
+  background: transparent;
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3rem -1.2rem $theme-hover, inset 1rem 0rem 6rem -4rem $interaction;
+  }
+}
+button {
+  border: thin solid;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+  color: $theme-primary;
+  stroke: $theme-primary;
+  fill: $theme-primary;
+}
+
+//#endregion **************************************************************************************************************************************************************************************
+//#region *****************************************************************    GLOBAL NAMES   **********************************************************************************************
+.primary {
+  color: $theme-primary;
+}
+.secondary {
+  color: $theme-contrast;
+}
+.active {
+  box-shadow: 0 0 1rem -1rem $theme-hover, inset 5rem 0rem 10rem -7rem $active;
+}
+.interaction {
+  color: $interaction;
+  border: $interaction;
+  &:hover {
+    color: $interaction;
+  }
+}
+.error {
+  color: $error;
+}
+.resolved,
+.success {
+  background: rgb(0, 255, 50, 0.2);
+}
+.waiting {
+  background: rgba(150, 150, 50, 0.08);
+}
+//#endregion
+//#region *****************************************************************    Transitions  **********************************************************************************************
+html {
+  * {
+    transition: 0.5s ease;
+  }
+  button,
+  li {
+    transition: 0.3s ease;
+  }
+  header {
+    transition: 0.7s ease;
+  }
+}
+
+form {
+  input,
+  select,
+  button {
+    transition: 0.3s ease;
+  }
+  textarea {
+    transition: 0.05s ease;
+  }
+}
+//#endregion
+
+.example {
+  ul {
+    h4 {
+      color: $interaction;
+    }
+    li {
+      border: thin solid;
+      margin-bottom: 0.5rem;
+      span {
+        color: $interaction;
+      }
+    }
+  }
+}
+
+.cow {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  .active {
+    color: $interaction;
+    border: thin solid $interaction;
+    box-shadow: 0 0 1rem -0.25rem currentColor;
+    outline: thin dashed $interaction;
+    outline-offset: 2px;
+  }
+  button {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+  }
+  margin-bottom: 1rem;
+  :nth-last-child(1) {
+    margin-right: 0;
+  }
+}

@@ -1,15 +1,12 @@
 import React from 'react';
 
-export const Item = ({ text, children }) => {
+import css from './Item.module.scss';
+
+export const Item = ({ text, id, className, style, children }) => {
   return (
-    <li style={{ ...inline }}>
+    <li style={{ ...style }} id={id} className={`${css.item} ${className}`}>
       {text}
       {children}
     </li>
   );
-};
-
-const inline = {
-  listStyle: 'none',
-  whiteSpace: 'nowrap',
 };

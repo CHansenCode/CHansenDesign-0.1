@@ -1,15 +1,18 @@
 import Logo from '../../public/Logo/Logo';
 import PlaceIndicator from './PlaceIndicator/PlaceIndicator';
-import { List, Item } from 'chansencode-lib';
+import { List, Item, Button } from 'chansencode-lib';
 import { NextLink } from '@/components/NextLink';
 
 import { deskNav } from '@/config';
 
 import css from './Header.module.scss';
 
-const Header = ({ className }) => {
+const Header = ({ colors, className }) => {
   return (
-    <header style={{ color: 'teal' }} className={`${className} ${css.header}`}>
+    <header
+      style={{ color: colors.primary }}
+      className={`${className} ${css.header}`}
+    >
       <nav className={css.nav}>
         <div className={css.logo}>
           <Logo />
@@ -22,13 +25,17 @@ const Header = ({ className }) => {
         </div>
 
         <div className={css.placeIndicator}>
-          <PlaceIndicator />
+          <PlaceIndicator colors={colors} />
         </div>
 
         <List className={css.links}>
           {deskNav.map((link, i) => (
-            <NextLink key={`${link.title}${i}`} href={link.route}>
-              <Item text={link.title} />
+            <NextLink
+              activeColor={colors.secondary}
+              key={`${link.title}${i}`}
+              href={link.route}
+            >
+              <Item className={css.link} text={link.title} />
             </NextLink>
           ))}
         </List>

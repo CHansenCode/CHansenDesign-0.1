@@ -1,0 +1,51 @@
+@use 'sass:math';
+
+.ticketOutline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  $span-size: 2rem;
+
+  display: grid;
+  grid-template:
+    "emptySpan1" 1fr
+    "ticketHoles1" $span-size
+    "emptySpan2" 1fr
+    "ticketHoles2" $span-size
+    "emptySpan3" 1fr / 1fr;
+
+  .noSpan {
+    border: thin solid currentColor;
+  }
+  > :nth-child(1) {
+    border-bottom: none;
+  }
+  > :nth-child(3) {
+    border-top: none;
+    border-bottom: none;
+  }
+  > :nth-child(5) {
+    border-top: none;
+  }
+
+  .spanParent {
+    position: relative;
+    span {
+      position: absolute;
+      height: $span-size;
+      width: $span-size;
+      border-radius: 50%;
+    }
+    .leftSpan {
+      border-right: thin solid currentColor;
+      left: 0 - math.div($span-size, 2);
+    }
+    .rightSpan {
+      border-left: thin solid currentColor;
+      right: 0 - math.div($span-size, 2);
+    }
+  }
+}

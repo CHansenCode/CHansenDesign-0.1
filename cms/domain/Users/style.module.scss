@@ -1,0 +1,20 @@
+.main {
+  width: 100%;
+  display: grid;
+  grid-template:
+    "a b" 1fr
+    "c c" 1fr / minmax(400px, 600px) 1fr;
+
+  > div {
+    border: thin dashed gray;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .main {
+    grid-template:
+      "a" 1fr
+      "b" 1fr
+      "c" 1fr / 1fr;
+  }
+}

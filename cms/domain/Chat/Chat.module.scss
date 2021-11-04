@@ -1,0 +1,85 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: "chatMenu activeChat" 1fr / 15rem 1fr;
+  grid-gap: 1rem;
+  padding: 2rem;
+
+  .chatMenu {
+    grid-area: chatMenu;
+  }
+  .activeChat {
+    grid-area: activeChat;
+  }
+}
+
+//#region MENU
+.chatMenu {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  box-shadow: 0 0 3rem -2rem currentColor;
+  border: thin solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+
+  ul li {
+    background: rgba(240, 245, 245, 1);
+    border: thin solid rgba(0, 50, 30, 0.2);
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+  }
+}
+
+//#endregion
+
+//#region ChatWindow
+//container
+.chatContainer {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 3rem -2rem currentColor;
+  padding: 2rem;
+}
+.title {
+  margin-bottom: 1rem;
+}
+
+//messages
+.myMessage,
+.theyMessage {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: thin solid rgba(0, 100, 80, 0.1);
+  color: black;
+}
+.myMessage {
+  margin-left: 10%;
+  background: linear-gradient(
+    135deg,
+    rgba(238, 194, 136, 0.2) 0%,
+    rgba(207, 139, 75, 0.2) 50%,
+    rgba(207, 133, 72, 0.2) 100%
+  );
+  p {
+    color: rgb(25, 95, 115);
+  }
+}
+.theyMessage {
+  margin-right: 5%;
+  background: linear-gradient(
+    160deg,
+    rgb(136, 219, 238, 0.1) 0%,
+    rgb(75, 203, 207, 0.2) 75%,
+    rgb(72, 192, 207, 0.3) 100%
+  );
+  p {
+    color: rgb(150, 110, 25);
+  }
+}
+//#endregion

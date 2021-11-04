@@ -1,0 +1,23 @@
+@import "../../../styles/colors";
+
+.logo {
+  padding: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.cmsText {
+  h4 {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  p {
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    span {
+      color: $interaction;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+  }
+}

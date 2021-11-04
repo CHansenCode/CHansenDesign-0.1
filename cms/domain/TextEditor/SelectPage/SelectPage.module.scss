@@ -1,0 +1,35 @@
+.pageSelector {
+  width: 320px;
+
+  margin-bottom: 2rem;
+}
+
+.pageSelector .dropdown {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  border: thin solid currentColor;
+
+  > button {
+    font-size: 1rem;
+    font-weight: 500;
+    height: inherit;
+    width: inherit;
+    border: none;
+  }
+
+  > .icon {
+    height: calc(3rem - 1px);
+    width: 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-left: thin solid;
+  }
+
+  &:hover {
+    background-color: orange;
+  }
+}

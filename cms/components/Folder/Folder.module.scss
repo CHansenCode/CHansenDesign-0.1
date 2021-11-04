@@ -1,0 +1,36 @@
+.wrapper {
+  position: relative;
+}
+
+.flaps {
+  display: flex;
+  margin-bottom: -2px;
+  background-color: #fff;
+
+  li {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.1rem;
+
+    border: thin solid;
+    // border-bottom: none;
+    background-color: #fff;
+    margin-right: 0.25rem;
+  }
+  .active {
+    border-bottom: none;
+  }
+}
+
+.options {
+  li {
+    border: thin solid;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.view {
+  border: thin solid;
+  min-height: 50vh;
+  box-shadow: 1rem 0 2rem -1rem currentColor;
+}

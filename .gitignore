@@ -1,13 +1,14 @@
-# All
+# GENERAL
 */node_modules
 */out/
 */dist/
 */build/
 */config/
 */.git
+*/api
 
 
-# ./client   (next.js)
+# ./client   (NEXT.js)
 
 */.next/
 

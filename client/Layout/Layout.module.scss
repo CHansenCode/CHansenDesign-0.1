@@ -19,6 +19,7 @@ $footer-height: 10rem;
   > section {
     max-width: 1200px;
     margin: 0 auto;
+    border: thin dashed lightgray;
   }
 
   // .main section {}
@@ -47,6 +48,7 @@ $footer-height: 10rem;
 
 .header {
   height: $header-height;
+  overflow: hidden;
 }
 
 .footer {

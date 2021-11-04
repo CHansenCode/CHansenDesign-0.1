@@ -1,0 +1,109 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template:
+    "chatMenu chatContainer" 1fr
+    "chatMenu formInput" auto / auto 1fr;
+
+  .chatMenu {
+    grid-area: chatMenu;
+  }
+  .chatContainer {
+    grid-area: chatContainer;
+  }
+  .formInput {
+    grid-area: formInput;
+  }
+}
+
+//style
+.wrapper {
+  box-shadow: 0 0 4rem -3rem currentColor;
+  .chatMenu {
+    box-shadow: 0 0 4rem -3rem currentColor;
+  }
+  .chatContainer {
+    overflow-y: scroll;
+    box-shadow: 0 0 4rem -3rem currentColor;
+  }
+  .formInput {
+    box-shadow: 0 0 4rem -3rem currentColor;
+  }
+}
+
+.chatMenu {
+  padding: 1rem;
+  h4 {
+    text-align: center;
+  }
+  > li {
+    text-align: center;
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(236, 236, 236, 0.15) 50%,
+      rgba(220, 230, 220, 0.15) 100%
+    );
+    border: thin solid rgba(0, 50, 30, 0.15);
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.chatContainer {
+  padding: 2rem;
+  .myMessages,
+  .theyMessages {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0.5rem;
+
+    border: thin solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2rem -1.3rem gray;
+  }
+  .myMessages {
+    margin-left: 5vw;
+    background: linear-gradient(
+      175deg,
+      rgba(184, 247, 255, 0.1) 0%,
+      rgba(28, 165, 184, 0.1) 100%
+    );
+  }
+  .theyMessages {
+    margin-right: 5vw;
+    background: linear-gradient(
+      170deg,
+      rgba(189, 252, 87, 0.1) 0%,
+      rgba(248, 165, 97, 0.1) 100%
+    );
+  }
+}
+
+.formInput {
+  position: relative;
+  textarea {
+    grid-area: textarea;
+    background: transparent;
+
+    padding: 0.75rem;
+    padding-right: 10vw;
+
+    box-shadow: 0 0 0 0 currentColor;
+    &:hover {
+      box-shadow: 0 0 3rem -1.8rem currentColor;
+    }
+  }
+  //
+  button {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    width: 8vw;
+    height: 94%;
+    grid-area: button;
+  }
+}

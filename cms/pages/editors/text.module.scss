@@ -1,0 +1,57 @@
+.wrapper {
+  padding: 5vw;
+  display: grid;
+  grid-template: "a" 1fr / 1fr;
+  grid-gap: 1vw;
+}
+
+.pageMenu {
+  display: flex;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    margin-right: 1rem;
+    width: min-content;
+    padding: 1rem;
+    white-space: nowrap;
+    border: thin solid;
+  }
+}
+
+.textEditor {
+  padding: 1rem;
+  border: thin solid rgba(0, 50, 50, 0.12);
+  box-shadow: 0 0 3rem -2rem currentColor;
+  form {
+    h4 {
+      color: orange;
+      padding-bottom: 1rem;
+    }
+    textarea {
+      padding: 0.5rem;
+      border: thin solid transparent;
+      box-shadow: 0 0 3rem -2rem transparent;
+    }
+    textarea:hover {
+      border: thin solid currentColor;
+      box-shadow: 0 0 3rem -2rem lightsalmon;
+    }
+    textarea:active {
+      border: thin solid currentColor;
+    }
+    textarea:focus {
+      border: thin solid currentColor;
+    }
+    button {
+      margin-top: 0.5rem;
+      border: thin solid currentColor;
+      background-color: rgba(50, 200, 200, 0.08);
+    }
+  }
+}
+
+.addNew {
+  border: thin solid orange;
+}

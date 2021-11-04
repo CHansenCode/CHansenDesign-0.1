@@ -1,0 +1,50 @@
+@import "../../styles/colors";
+@import "../../styles/config";
+
+.header {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+.header_loggedOut {
+  opacity: 0;
+  pointer-events: none;
+  left: $nav-width;
+}
+
+.nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template:
+    "heading" auto
+    "lists" 1fr
+    "footer" 6rem / 100%;
+
+  border-right: solid;
+  box-shadow: 0 0 5rem -3rem currentColor;
+
+  .heading {
+    grid-area: heading;
+  }
+  .infoBox {
+    grid-area: infobox;
+  }
+  .lists {
+    grid-area: lists;
+  }
+  .footer {
+    grid-area: footer;
+  }
+
+  background: $nav-bg;
+}
+
+@media screen and (max-width: 850px) {
+  .header {
+    display: none;
+  }
+}

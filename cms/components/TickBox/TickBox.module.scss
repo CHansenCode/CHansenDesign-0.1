@@ -1,0 +1,27 @@
+@import "/styles/colors";
+
+.main {
+  position: relative;
+  display: flex;
+  height: min-content;
+}
+
+.main div {
+  border: thin solid;
+}
+
+.main span {
+  border: thin dashed;
+}
+
+.main:hover {
+  cursor: pointer;
+}
+
+.truthy {
+  color: $true;
+}
+
+.falsey {
+  color: $false;
+}

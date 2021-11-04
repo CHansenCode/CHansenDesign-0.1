@@ -1,0 +1,8 @@
+@import "/styles/colors";
+
+.button {
+  box-shadow: inset 0 0 3rem -1.5rem transparent, 0 0 0 0 transparent;
+}
+.button:hover {
+  box-shadow: inset 0 0 3rem -1.5rem currentColor, 0 0 1rem -0.3rem currentColor;
+}

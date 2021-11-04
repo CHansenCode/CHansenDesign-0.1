@@ -1,0 +1,42 @@
+.gridContainer {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template:
+    "hello hello dbload" 5rem
+    "updates updates dbload" auto
+    "messages quickstats upcoming" 1fr / 1fr 1fr 2fr;
+  grid-gap: 1rem;
+
+  > * {
+    box-shadow: 0 0 3rem -2.2rem currentColor;
+    padding: 1rem;
+    border: thin solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(150deg, rgb(250, 250, 250) 0%, rgb(241, 241, 241) 100%);
+  }
+  .hello {
+    grid-area: hello;
+  }
+  .dbload {
+    grid-area: dbload;
+    display: flex;
+    flex-direction: column;
+    button {
+      width: 15rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+  .updates {
+    grid-area: updates;
+  }
+  .messages {
+    grid-area: messages;
+  }
+  .quickstats {
+    grid-area: quickstats;
+  }
+  .upcoming {
+    grid-area: upcoming;
+  }
+}

@@ -1,0 +1,30 @@
+.title {
+  margin-bottom: 1rem;
+  color: orange;
+}
+
+.list {
+  display: grid;
+  grid-template: "a b c d e" 1fr / 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 3vw;
+}
+
+.listItem {
+  height: 400px;
+  overflow: hidden;
+  padding: 1rem;
+
+  background-color: rgba(19, 94, 117, 0.7);
+  box-shadow: inset 1rem 1rem 5rem -1rem rgba(255, 255, 255, 0.15), inset -1rem -1rem 5rem -1rem rgba(0, 0, 0, 0.12);
+
+  border: thin solid currentColor;
+
+  * {
+    color: white;
+  }
+
+  &:hover {
+    background-color: orange;
+    cursor: pointer;
+  }
+}

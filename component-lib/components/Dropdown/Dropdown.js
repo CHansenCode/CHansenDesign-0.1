@@ -33,7 +33,7 @@ export const Dropdown = ({ children }) => {
 
         <div style={{ ...inline.list, ...propStyle.list }}>
           {children.map((child, i) => (
-            <li style={inline.item} key={`menuItem${i}`}>
+            <li key={`${i}dropdown`} style={inline.item} key={`menuItem${i}`}>
               {child}
             </li>
           ))}

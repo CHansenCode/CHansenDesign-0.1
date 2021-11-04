@@ -1,0 +1,44 @@
+@import "/styles/colors";
+
+.list {
+  padding: 1rem;
+  max-width: 1200px;
+  h3 {
+    padding: 0.5rem 0;
+  }
+}
+
+.listItems {
+  border-top: thin solid currentColor;
+  padding: 1rem;
+  min-height: 60vh;
+}
+
+.listItem {
+  margin-bottom: 0.5rem;
+  border: thin dashed currentColor;
+  background-color: #fff;
+  padding: 0.5rem;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &:hover {
+    border: thin solid $interaction;
+    background-color: $interaction-bg;
+    cursor: pointer;
+  }
+}
+
+.newListItem {
+  padding: 1rem;
+  border: thin dashed green;
+  &:hover {
+    padding-left: 1.5rem;
+    border: thin dashed $interaction;
+    cursor: pointer;
+    color: $interaction;
+  }
+}

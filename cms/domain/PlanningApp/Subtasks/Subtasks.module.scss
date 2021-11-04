@@ -1,0 +1,87 @@
+@import "../../../styles/colors";
+
+.subtasksWrapper {
+  width: 100%;
+  padding: 0.5rem;
+  border-top: thin dashed lightgray;
+}
+
+.subtaskCard {
+  display: grid;
+  grid-template: "title timeRemaining checkbox" 1fr / 1fr 5rem auto;
+  grid-gap: 0.25rem;
+  margin-bottom: 0.35rem;
+  align-items: center;
+  box-shadow: 0 0 0.5rem -0.25rem currentColor;
+  border: thin solid lightgray;
+  border-radius: 0.5rem;
+
+  padding-right: 0.35rem;
+
+  height: 2rem;
+
+  input {
+    font-size: 0.9rem;
+    font-weight: 400;
+    height: 2rem;
+  }
+}
+.resolved {
+  color: green;
+  background-color: $success-bg;
+}
+
+.newSubtask {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  color: $interaction;
+  border: thin dashed $interaction;
+  border-radius: 0.5rem;
+
+  * {
+    color: $interaction;
+    font-weight: 300;
+  }
+
+  &:hover {
+    opacity: 1;
+    border: thin dashed $interaction;
+    background-color: $interaction-bg;
+    cursor: pointer;
+    * {
+      color: $interaction;
+    }
+  }
+}
+
+.inputWithSuffix {
+  display: grid;
+  grid-template: "input suffix" 1fr / 1fr auto;
+  align-items: center;
+  padding-right: 0.25rem;
+  input {
+    text-align: right;
+  }
+  h5 {
+    pointer-events: none;
+    font-size: 0.7rem;
+  }
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  border-color: red;
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.15);
+  }
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+}

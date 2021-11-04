@@ -1,0 +1,20 @@
+@import "/styles/colors";
+
+.ListItem {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: thin solid currentColor;
+
+  max-width: 640px;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+  &:hover {
+    color: $interaction;
+  }
+}
+
+.ListItem_active {
+  border: thin solid $interaction;
+}

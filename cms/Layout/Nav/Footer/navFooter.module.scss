@@ -1,0 +1,42 @@
+@import "../../../styles/colors";
+
+.footer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template:
+    "list" 3rem
+    "button" 3rem / 1fr;
+}
+
+.footer ul {
+  display: grid;
+  grid-template: "a b c d" 1fr / 1fr 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  border-top: solid;
+  li {
+    height: 3rem;
+    border-right: solid;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        max-height: 1.75rem;
+        max-width: 1.75rem;
+      }
+    }
+  }
+  :nth-last-child(1) {
+    border-right: none;
+  }
+}
+.footer button {
+  border: solid;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  width: 100%;
+}

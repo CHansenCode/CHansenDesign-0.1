@@ -1,0 +1,39 @@
+.nav {
+  ul {
+    display: flex;
+  }
+}
+
+.button {
+  position: relative;
+  margin-right: 1rem;
+  border: none;
+
+  &:hover {
+    .hover {
+      opacity: 1;
+    }
+  }
+  .hover {
+    position: absolute;
+    top: 120%;
+    left: 0;
+
+    background-color: #fff;
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  * svg {
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none;
+    path {
+      color: currentColor !important;
+      stroke: currentColor !important;
+    }
+  }
+}

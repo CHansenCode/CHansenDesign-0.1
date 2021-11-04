@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 
 import Header from './Header/Header';
@@ -5,7 +6,7 @@ import Footer from './Footer/Footer';
 
 import css from './Layout.module.scss';
 
-const Layout = ({ children }) => {
+const Layout = ({ colors, children }) => {
   return (
     <>
       <Head>
@@ -14,9 +15,11 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header className={css.header} />
-      <main className={css.main}>{children}</main>
-      <Footer className={css.footer} />
+      <Header colors={colors} className={css.header} />
+      <main style={{ color: colors.primary }} className={css.main}>
+        {children}
+      </main>
+      <Footer colors={colors} className={css.footer} />
     </>
   );
 };

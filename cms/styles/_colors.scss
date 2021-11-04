@@ -1,0 +1,54 @@
+//Primary
+$theme-primary: rgb(70, 130, 170);
+$theme-light: rgb(90, 160, 190);
+$theme-contrast: rgba(230, 150, 150, 1);
+$theme-contrast-weak: rgba(230, 150, 150, 0.5);
+
+$theme-bg: rgba(70, 130, 170, 0.5);
+$theme-border-light: rgba(70, 130, 170, 0.25);
+
+$theme-hover: rgba(90, 150, 190, 1);
+$theme-light-contrast: rgba(30, 90, 110, 1);
+$theme-light-bg: rgba(90, 160, 190, 0.15);
+$font-color: rgb(70, 130, 170);
+
+$nav-bg: rgba(255, 255, 255, 0.85);
+$background-color: rgb(253, 253, 253);
+$footer-bg-color: rgb(245, 245, 245);
+
+//** global names
+//INTERACTION / ACTIVE / HOVER
+$interaction: rgb(230, 150, 150);
+$interaction-bg: rgba(230, 170, 90, 0.15);
+$active: rgb(230, 170, 90);
+$active-bg: rgba(230, 170, 90, 0.15);
+
+//
+//ERROR / FAIL / FALSE
+$error: rgb(200, 0, 0);
+$error-bg: rgba(200, 0, 0, 0.15);
+$fail: $error;
+$fail-bg: $error-bg;
+$false: $error;
+$false-bg: $error-bg;
+
+//PASSED / SUCCESS / TRUE
+$passed: rgb(0, 200, 0);
+$passed-bg: rgba(0, 200, 0, 0.08);
+$success: $passed;
+$success-bg: $passed-bg;
+$true: $passed;
+$true-bg: $passed-bg;
+
+//PENDING / UNRESOLVED / OBS!
+$pending: rgb(200, 200, 0, 1);
+$pending-bg: rgba(200, 200, 0, 0.15);
+$unresolved: $pending;
+$unresolved-bg: $pending-bg;
+$obs: $pending;
+$obs-bg: $pending-bg;
+$waiting: $pending;
+$waiting-bg: $pending-bg;
+
+$supportive: $theme-light;
+$supportive-bg: $theme-light-bg;
