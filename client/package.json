@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "chansencode-lib": "^0.1.8",
+    "chansencode-lib": "^0.1.10",
     "eslint-import-resolver-typescript": "^2.5.0",
     "next": "11.1.2",
     "react": "17.0.2",

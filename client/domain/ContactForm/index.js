@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import { Section, Button, Form, Textarea } from 'chansencode-lib';
-import { Input } from '../components';
+import { Input } from './Input';
+import { Form } from './Form';
+import { Textarea } from './Textarea';
+import { Button, Loading } from 'chansencode-lib';
 
-const Forms = () => {
+const index = () => {
   const [formData, setFormData] = useState({
     name: '',
     contactInfo: '',
@@ -15,6 +17,7 @@ const Forms = () => {
     message: false,
   });
   const [allValid, setAllValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   //#region Validation
   //original forbidden, /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?¤]+/
@@ -59,6 +62,7 @@ const Forms = () => {
 
   function onSubmit() {
     console.log();
+    setIsLoading(true);
   }
   function clear() {
     setFormData({ name: '', contactInfo: '', message: '' });
@@ -66,8 +70,8 @@ const Forms = () => {
   }
 
   return (
-    <Section center>
-      <Form title="contact form" allValid={allValid}>
+    <div>
+      <Form title="Contact Form">
         <Input
           label="name"
           id="name"
@@ -102,13 +106,14 @@ const Forms = () => {
             setFormData({ ...formData, [e.target.id]: e.target.value })
           }
         />
-
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div>
+          <div style={{ display: 'flex' }}>
             {allValid && (
               <Button text="Submit" type="green" onClick={onSubmit} />
             )}
+            {/* {isLoading && <Loading />} */}
           </div>
+
           <div>
             {formData.name.length > 0 ||
             formData.contactInfo.length > 0 ||
@@ -118,8 +123,8 @@ const Forms = () => {
           </div>
         </div>
       </Form>
-    </Section>
+    </div>
   );
 };
 
-export default Forms;
+export default index;

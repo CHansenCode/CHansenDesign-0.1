@@ -10,11 +10,12 @@ export const NextLink = ({ href, exact, activeColor, children, ...props }) => {
   const isActive = exact ? pathname === href : pathname.startsWith(href);
 
   if (isActive) {
-    props.className += ' active';
+    props.className += ` active`;
   }
 
   const propStyle = {
     color: isActive ? activeColor : 'currentColor',
+    boxShadow: isActive ? 'inset -1rem -1rem 3rem -1.8rem currentColor' : null,
   };
 
   return (
