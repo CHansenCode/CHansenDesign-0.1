@@ -3,6 +3,8 @@
 $header-height: 5rem;
 $footer-height: 10rem;
 //
+// < 910 px
+$mobile-height: 3rem;
 //
 
 //parents: html body #__next { .header, .main, .footer }
@@ -20,16 +22,6 @@ $footer-height: 10rem;
     max-width: 1200px;
     margin: 0 auto;
     border: thin dashed lightgray;
-  }
-
-  // .main section {}
-  > :nth-child(1) {
-    //distance to header
-    padding-top: 5vw;
-  }
-  > :nth-last-child(1) {
-    //before footer
-    padding-bottom: 5rem;
   }
 }
 
@@ -54,4 +46,13 @@ $footer-height: 10rem;
 .footer {
   // Doesn't scale - ( use strict composition rules & specific mobile @rules )
   height: $footer-height;
+}
+
+@media screen and (max-width: 950px) {
+  .main {
+    padding-top: $mobile-height;
+  }
+  .header {
+    height: $mobile-height;
+  }
 }

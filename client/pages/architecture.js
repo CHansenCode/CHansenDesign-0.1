@@ -8,9 +8,7 @@ import { PageNavigator } from '../domain/PageNavigator';
 const architecture = ({ colors }) => {
   return (
     <>
-      <div className="main_>_nth_1st_padding-top" />
       {/* Fixed */}
-
       <PageNavigator />
 
       {/* Page */}

@@ -19,7 +19,8 @@ export const Form = ({ title, children, color, onSubmit }) => {
 };
 
 const inline = {
-  width: '640px',
+  minWidth: '300px',
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
   background: 'rgba(255,255,255,0.3)',

@@ -18,9 +18,6 @@
   height: 100%;
   width: 100%;
 
-  //scroll-bar width 'chrome'
-  padding-right: 10px;
-
   display: grid;
   grid-template: 'logo three indicator links' 1fr / 200px 8rem 1fr auto;
 
@@ -30,9 +27,6 @@
     display: flex;
     align-items: center;
     padding: 0 1rem; //sides & spacing
-  }
-  ul {
-    margin: 0;
   }
 }
 
@@ -49,48 +43,88 @@
     max-width: 80%;
   }
 }
-
 .nav .threeWords {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-evenly;
+
+  border-left: thin solid;
+  border-right: thin solid;
   h5 {
     font-weight: 400;
     margin: 0;
     padding: 0;
   }
 }
+.nav ul {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    li {
+      height: 100%;
+      width: 100%;
 
-.threeWords {
-  border-left: thin solid;
-  border-right: thin solid;
-}
+      padding: 0 1rem;
 
-.nav ul a li {
-  border: thin solid currentColor;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-.nav li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  padding: 0 1rem;
-}
-.nav a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-.nav a:hover {
-  color: currentColor;
-  li {
-    box-shadow: inset -1rem -1rem 5rem -3.5rem currentColor;
+      border-left: thin solid currentColor;
+    }
+  }
+  a:hover {
     color: currentColor;
+    li {
+      box-shadow: inset -1rem -1rem 5rem -3.5rem currentColor;
+      color: currentColor;
+    }
+  }
+}
+.hamburger {
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  right: 0;
+  height: 3rem;
+  width: 3rem;
+  border: 2px solid;
+
+  display: none;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1140px) {
+  .header nav {
+    padding: 0;
+    grid-template: 'logo indicator links' 1fr / 200px 1fr auto;
+  }
+  .nav .logo {
+    border-right: thin solid;
+  }
+  .nav .threeWords {
+    display: none;
+  }
+}
+@media screen and (max-width: 950px) {
+  .header nav {
+    grid-template: 'logo indicator hamburger' 1fr / 100px 1fr auto;
+  }
+  .nav .logo {
+    height: 3rem;
+  }
+  .nav .placeIndicator * {
+    font-size: 14px;
+  }
+  .nav ul {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
   }
 }

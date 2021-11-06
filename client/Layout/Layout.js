@@ -17,7 +17,9 @@ const Layout = ({ colors, children }) => {
 
       <Header colors={colors} className={css.header} />
       <main style={{ color: colors.primary }} className={css.main}>
+        <div className="top-padding" style={{ height: '5vw', width: '0' }} />
         {children}
+        <div className="bottom-padding" style={{ height: '5vw', width: '0' }} />
       </main>
       <Footer colors={colors} className={css.footer} />
     </>

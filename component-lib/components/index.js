@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './Dropdown';
 export * from './Form';
+export * from './Hamburger';
 export * from './IconOnHoverInfo';
 export * from './Image';
 export * from './Input';

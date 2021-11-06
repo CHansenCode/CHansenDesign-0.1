@@ -69,60 +69,57 @@ const index = () => {
   }
 
   return (
-    <div>
-      <Form title="Contact Form">
-        <Input
-          label="name"
-          id="name"
-          required
-          valid={valid.name}
-          infoOnHover="min 2 chars, no special chars allowed"
-          value={formData.name}
-          onChange={e =>
-            setFormData({ ...formData, [e.target.id]: e.target.value })
-          }
-        />
-        <Input
-          label="E-mail"
-          id="contactInfo"
-          required
-          infoOnHover="cow"
-          value={formData.contactInfo}
-          valid={valid.contactInfo}
-          onChange={e =>
-            setFormData({ ...formData, [e.target.id]: e.target.value })
-          }
-        />
-        <Textarea
-          label="message"
-          id="message"
-          required
-          infoOnHover="cow"
-          rows="5"
-          value={formData.message}
-          valid={valid.message}
-          onChange={e =>
-            setFormData({ ...formData, [e.target.id]: e.target.value })
-          }
-        />
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex' }}>
-            {allValid && (
-              <Button text="Submit" type="green" onClick={onSubmit} />
-            )}
-            {isLoading && <Loading />}
-          </div>
+    <Form title="Contact Form">
+      <Input
+        label="name"
+        id="name"
+        required
+        valid={valid.name}
+        infoOnHover="min 2 chars, no special chars allowed"
+        value={formData.name}
+        onChange={e =>
+          setFormData({ ...formData, [e.target.id]: e.target.value })
+        }
+      />
+      <Input
+        label="E-mail"
+        id="contactInfo"
+        required
+        infoOnHover="cow"
+        value={formData.contactInfo}
+        valid={valid.contactInfo}
+        onChange={e =>
+          setFormData({ ...formData, [e.target.id]: e.target.value })
+        }
+      />
+      <Textarea
+        label="message"
+        id="message"
+        required
+        infoOnHover="cow"
+        rows="5"
+        value={formData.message}
+        valid={valid.message}
+        onChange={e =>
+          setFormData({ ...formData, [e.target.id]: e.target.value })
+        }
+      />
 
-          <div>
-            {formData.name.length > 0 ||
-            formData.contactInfo.length > 0 ||
-            formData.message.length > 0 ? (
-              <Button type="yellow" onClick={() => clear()} text="Reset" />
-            ) : null}
-          </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex' }}>
+          {allValid && <Button text="Submit" type="green" onClick={onSubmit} />}
+          {isLoading && <Loading />}
         </div>
-      </Form>
-    </div>
+
+        <div>
+          {formData.name.length > 0 ||
+          formData.contactInfo.length > 0 ||
+          formData.message.length > 0 ? (
+            <Button type="yellow" onClick={() => clear()} text="Reset" />
+          ) : null}
+        </div>
+      </div>
+    </Form>
   );
 };
 
