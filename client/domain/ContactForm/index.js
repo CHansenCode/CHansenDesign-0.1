@@ -4,6 +4,7 @@ import { Input } from './Input';
 import { Form } from './Form';
 import { Textarea } from './Textarea';
 import { Button, Loading } from 'chansencode-lib';
+import { baseAPI } from '../../config';
 
 const index = () => {
   const [formData, setFormData] = useState({
@@ -60,10 +61,8 @@ const index = () => {
   }, [valid, allValid]);
   //#endregion
 
-  function onSubmit() {
-    console.log();
-    setIsLoading(true);
-  }
+  function onSubmit(formData) {}
+
   function clear() {
     setFormData({ name: '', contactInfo: '', message: '' });
     setValid({ name: false, contactInfo: false, message: false });
@@ -111,7 +110,7 @@ const index = () => {
             {allValid && (
               <Button text="Submit" type="green" onClick={onSubmit} />
             )}
-            {/* {isLoading && <Loading />} */}
+            {isLoading && <Loading />}
           </div>
 
           <div>

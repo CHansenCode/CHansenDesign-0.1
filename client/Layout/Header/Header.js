@@ -14,9 +14,11 @@ const Header = ({ colors, className }) => {
       className={`${className} ${css.header}`}
     >
       <nav className={css.nav}>
-        <div className={css.logo}>
-          <Logo />
-        </div>
+        <NextLink href="/" exact activeColor="transparent">
+          <div className={css.logo}>
+            <Logo colors={colors} />
+          </div>
+        </NextLink>
 
         <div className={css.threeWords}>
           <h5>Architecture</h5>

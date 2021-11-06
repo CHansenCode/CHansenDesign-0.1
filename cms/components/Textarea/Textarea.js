@@ -1,23 +1,61 @@
-import css from "./Textarea.module.scss";
+import React, { useState } from 'react';
 
-const Textarea = ({ label, placeholder, rows, id, className, value, onChange }) => {
+import css from './Textarea.module.scss';
+
+export const Textarea = ({
+  label,
+  placeholder,
+  valid,
+  required,
+  infoOnHover,
+  id,
+  className,
+  value,
+  onChange,
+  rows,
+}) => {
+  const [isFocused, setIsFocused] = useState(false);
+  function onFocus() {
+    setIsFocused(true);
+  }
+  function onBlur() {
+    setIsFocused(false);
+  }
   return (
-    <div className={`${css.container} ${className}`}>
-      {label && <h6 className={css.label}>{label}:</h6>}
-      <textarea
-        id={id}
-        className={css.textarea}
-        rows={rows}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      ></textarea>
+    <div className={`${css.div} ${className} ${valid && css.valid}`}>
+      <header className={css.header}>
+        {label && <h5 className={css.label}>{label} :</h5>}
+        {required && <h6 className={`${css.required} secondary`}>* req.</h6>}
+        {infoOnHover && (
+          <InfoIcon size="1rem" text={infoOnHover} forceHover={isFocused} />
+        )}
+      </header>
+
+      <div
+        className={`${css.inputWrapper} ${valid && css.valid} ${
+          valid && 'success-bg success'
+        }`}
+      >
+        <textarea
+          id={id}
+          placeholder={placeholder}
+          onFocus={() => onFocus()}
+          onBlur={() => onBlur()}
+          value={value}
+          rows={rows}
+          onChange={onChange}
+        ></textarea>
+
+        {valid && <div className={css.checkmark}>✓</div>}
+      </div>
     </div>
   );
 };
 
 Textarea.defaultProps = {
-  rows: 4,
+  rows: 5,
 };
 
-export default Textarea;
+const InfoIcon = () => {
+  return <div>i</div>;
+};

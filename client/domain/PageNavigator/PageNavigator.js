@@ -1,8 +1,8 @@
-import css from './NavigatePage.module.scss';
+import css from './PageNavigator.module.scss';
 
 import { List, Item } from 'chansencode-lib';
 
-const NavigatePage = () => {
+export const PageNavigator = () => {
   return (
     <div className={css.wrapper}>
       <List>
@@ -15,5 +15,3 @@ const NavigatePage = () => {
     </div>
   );
 };
-
-export default NavigatePage;

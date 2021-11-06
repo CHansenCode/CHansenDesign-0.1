@@ -12,8 +12,6 @@ import Subtask from "./Subtasks/Subtask";
 
 import ButtonsMenu from "./ButtonsMenu/ButtonsMenu";
 
-import ObjectViewer from "../../components/ObjectViewer/ObjectViewer";
-
 import { getPlannings } from "../../actions/planningApp.actions";
 
 export const PlanningApp = ({ array }) => {
@@ -87,11 +85,12 @@ export const PlanningApp = ({ array }) => {
               {activeProject &&
                 activeProject.id === project.id &&
                 activeProject.stages.map((stage, stageIndex) => (
+                  //
                   <Stage
                     key={stage.id}
                     data={stage}
                     stageIndex={stageIndex}
-                    //
+
                     activeProject={activeProject}
                     setActiveProject={setActiveProject}
                     controller={controller}
@@ -110,12 +109,13 @@ export const PlanningApp = ({ array }) => {
                     >
                       {activeProject &&
                         stage.tasks.map((task, taskIndex) => (
+                          //
                           <Task
                             key={task.id}
                             data={task}
                             stageIndex={stageIndex}
                             taskIndex={taskIndex}
-                            //
+
                             stageData={stage}
                             activeProject={activeProject}
                             setActiveProject={setActiveProject}
@@ -127,7 +127,7 @@ export const PlanningApp = ({ array }) => {
                             <Subtasks
                               stageIndex={stageIndex}
                               taskIndex={taskIndex}
-                              //
+
                               controller={controller}
                               activeId={activeId}
                               projectData={project}
@@ -135,6 +135,7 @@ export const PlanningApp = ({ array }) => {
                               setActiveProject={setActiveProject}
                             >
                               {task.subtasks.map((subtask, subtaskIndex) => (
+                                //
                                 <Subtask
                                   key={subtask.id}
                                   data={subtask}

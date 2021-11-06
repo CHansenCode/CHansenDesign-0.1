@@ -1,20 +1,105 @@
-import css from "./Input.module.scss";
+import React, { useState } from 'react';
 
-const Input = ({ label, placeholder, id, className, value, type, onChange, info }) => {
+import css from './Input.module.scss';
+
+export const Input = ({
+  label,
+  placeholder,
+  valid,
+  required,
+  infoOnHover,
+  id,
+  className,
+  value,
+  onChange,
+}) => {
+  const [isFocused, setIsFocused] = useState(false);
+  function onFocus() {
+    setIsFocused(true);
+  }
+  function onBlur() {
+    setIsFocused(false);
+  }
   return (
-    <div className={`${css.container} ${className}`}>
-      {label && <h6 className={css.label}>{label} :</h6>}
+    <div className={`${css.div} ${className}`}>
+      <header className={css.header}>
+        {label && <h5 className={`${css.label}`}>{label} :</h5>}
+        {required && <h6 className={`${css.required} secondary`}>* req.</h6>}
+        {infoOnHover && (
+          <IconOnHoverInfo text={infoOnHover} forceHover={isFocused} />
+        )}
+      </header>
 
-      <input id={id} placeholder={placeholder} onChange={onChange} value={value} type={type} />
-
-      {info && info.length > 0 ? (
-        <div className={css.onHover}>
-          <h5>i</h5>
-          <span>{info}</span>
-        </div>
-      ) : null}
+      <div className={`${css.inputWrapper} ${valid && css.valid}`}>
+        <input
+          id={id}
+          placeholder={placeholder}
+          onFocus={() => onFocus()}
+          onBlur={() => onBlur()}
+          value={value}
+          onChange={onChange}
+        />
+        {valid && <div className={css.checkmark}>✓</div>}
+      </div>
     </div>
   );
 };
 
-export default Input;
+const IconOnHoverInfo = ({ text, forceHover }) => {
+  const [hover, setHover] = useState(false);
+
+  function onMouseEnter() {
+    setHover(true);
+  }
+  function onMouseLeave() {
+    setHover(false);
+  }
+
+  const style = {
+    wrapper: {
+      position: 'relative',
+      height: '1rem',
+      width: '1rem',
+
+      textAlign: 'right',
+
+      display: 'flex',
+      justifyContent: 'flex-end',
+
+      pointer: 'help',
+    },
+
+    icon: {
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '50%',
+      border: 'thin solid currentColor',
+    },
+
+    onHover: {
+      position: 'absolute',
+      top: 0,
+      right: '1rem',
+      marginRight: '1rem',
+      background: '#fff',
+      whiteSpace: 'nowrap',
+    },
+  };
+
+  return (
+    <div
+      style={style.wrapper}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div style={style.icon}>
+        <h6>i</h6>
+      </div>
+
+      {(forceHover || hover) && <h5 style={style.onHover}>{text}</h5>}
+    </div>
+  );
+};

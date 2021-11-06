@@ -2,14 +2,18 @@ import Image from 'next/image';
 
 import { Section } from 'chansencode-lib';
 import Gallery from '../domain/Gallery';
-import NavigatePage from '../domain/NavigatePage/NavigatePage';
+
+import { PageNavigator } from '../domain/PageNavigator';
 
 const architecture = ({ colors }) => {
   return (
     <>
-      <div></div>
-      <NavigatePage />
+      <div className="main_>_nth_1st_padding-top" />
+      {/* Fixed */}
 
+      <PageNavigator />
+
+      {/* Page */}
       <Section center>
         <h2>Animation</h2>
       </Section>

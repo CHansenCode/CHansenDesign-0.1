@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Section from "../../components/Section/Section";
+import Section from '../../components/Section/Section';
+import { Button } from 'chansencode-lib';
 
-import DatabaseViewer from "../../domain/DatabaseViewer";
-import Loading from "../../components/Loading/Loading";
+import DatabaseViewer from '../../domain/DatabaseViewer';
+import Loading from '../../components/Loading/Loading';
+
+import DBEditor from '../../domain/DBeditor/DBEditor';
 
 const media = ({ meta, setMeta }) => {
   return (
-    <Section flex center height="100vh">
-      <Loading text="Connecting to database" />
-      <DatabaseViewer db="Media" />
+    <Section flex height="100vh">
+      <DBEditor />
     </Section>
   );
 };
