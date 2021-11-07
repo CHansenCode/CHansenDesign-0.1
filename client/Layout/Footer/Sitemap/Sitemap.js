@@ -14,9 +14,15 @@ const Sitemap = ({ colors }) => {
   return (
     <ul className={css.ul}>
       <div>
-        <h6 style={{ paddingLeft: '0.2rem', color: colors.secondary }}>
-          sitemap:
-        </h6>
+        <h5
+          style={{
+            color: colors.secondary,
+            fontWeight: 400,
+            marginLeft: '0.25rem',
+          }}
+        >
+          SITEMAP
+        </h5>
         {sitemap
           ? sitemap.map((link, i) => (
               <NextLink
@@ -30,12 +36,18 @@ const Sitemap = ({ colors }) => {
           : 'Please provide an array of links to Sitemap component'}
       </div>
       <div>
-        <h6 style={{ paddingLeft: '0.2rem', color: colors.secondary }}>
-          legal:
-        </h6>
-        <OnHover text="Cookie policy" hover={cookiePolicy} />
-        <OnHover text="Data handling" hover={dataHandling} />
-        <OnHover text="Legal" hover={legal} />
+        <h5
+          style={{
+            color: colors.secondary,
+            fontWeight: 400,
+            marginLeft: '0.25rem',
+          }}
+        >
+          LEGAL
+        </h5>
+        <OnHover text="Cookie policy" hover={cookiePolicy} colors={colors} />
+        <OnHover text="Data handling" hover={dataHandling} colors={colors} />
+        <OnHover text="Legal" hover={legal} colors={colors} />
       </div>
     </ul>
   );
@@ -43,11 +55,11 @@ const Sitemap = ({ colors }) => {
 
 export default Sitemap;
 
-const OnHover = ({ text, hover }) => {
+const OnHover = ({ text, hover, colors }) => {
   const [hovered, setHovered] = useState(false);
   const inline = {
     li: {
-      position: 'relative',
+      color: colors && hovered ? colors.secondary : colors.primary,
     },
     hover: {
       display: hovered ? 'inline-block' : 'none',
@@ -65,6 +77,7 @@ const OnHover = ({ text, hover }) => {
     <li
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      style={inline.li}
     >
       {text}
       <h5 style={inline.hover}>{hover}</h5>

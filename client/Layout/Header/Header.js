@@ -53,7 +53,7 @@ const Header = ({ colors, className }) => {
           <Hamburger
             id="hamburger"
             size="100%"
-            ternary={!mobNavOpen}
+            ternary={mobNavOpen}
             onClick={() => setMobNavOpen(!mobNavOpen)}
           />
         </div>

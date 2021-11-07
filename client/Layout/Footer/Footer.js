@@ -13,7 +13,7 @@ const Footer = ({ colors, id, className }) => {
       className={`${css.footer} ${className}`}
     >
       <div className={css.social}>
-        <Social />
+        <Social colors={colors} />
       </div>
 
       <div className={css.info}>

@@ -1,7 +1,7 @@
 import { Section } from 'chansencode-lib';
 import ContactForm from '../domain/ContactForm';
 
-const Contact = () => {
+const contact = () => {
   return (
     <>
       <Section center>
@@ -13,4 +13,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default contact;

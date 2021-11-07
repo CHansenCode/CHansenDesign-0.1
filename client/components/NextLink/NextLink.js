@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ export const NextLink = ({
   children,
   ...props
 }) => {
+  const [hovered, setHovered] = useState(false);
   const { pathname } = useRouter();
 
   const isActive = exact ? pathname === href : pathname.startsWith(href);
@@ -21,7 +22,7 @@ export const NextLink = ({
   }
 
   const propStyle = {
-    color: isActive ? activeColor : 'currentColor',
+    color: isActive || hovered ? activeColor : 'currentColor',
     boxShadow:
       boxShadow && isActive
         ? 'inset -1rem -1rem 3rem -1.8rem currentColor'
@@ -30,7 +31,12 @@ export const NextLink = ({
 
   return (
     <Link href={href}>
-      <a {...props} style={{ ...inline, ...propStyle }}>
+      <a
+        {...props}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ ...inline, ...propStyle }}
+      >
         {children}
       </a>
     </Link>
