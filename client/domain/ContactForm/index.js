@@ -4,7 +4,7 @@ import { Input } from './Input';
 import { Form } from './Form';
 import { Textarea } from './Textarea';
 import { Button, Loading } from 'chansencode-lib';
-import { baseAPI } from '../../config';
+import { postContactForm } from '@/api';
 
 const index = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +19,8 @@ const index = () => {
   });
   const [allValid, setAllValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
   //#region Validation
   //original forbidden, /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?¤]+/
@@ -61,7 +63,7 @@ const index = () => {
   }, [valid, allValid]);
   //#endregion
 
-  function onSubmit(formData) {}
+  async function onSubmit(formData) {}
 
   function clear() {
     setFormData({ name: '', contactInfo: '', message: '' });
@@ -109,6 +111,7 @@ const index = () => {
         <div style={{ display: 'flex' }}>
           {allValid && <Button text="Submit" type="green" onClick={onSubmit} />}
           {isLoading && <Loading />}
+          {sent && 'message has been sent!'}
         </div>
 
         <div>
