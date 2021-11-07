@@ -6,11 +6,13 @@ import Footer from './Footer/Footer';
 
 import css from './Layout.module.scss';
 
+import { meta } from '@/config';
+
 const Layout = ({ colors, children }) => {
   return (
     <>
       <Head>
-        <title>Storybook-Next.js-template</title>
+        <title>{meta.title}</title>
         <meta name="description" content="template" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

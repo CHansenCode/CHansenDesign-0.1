@@ -5,22 +5,27 @@ import Social from './Social/Social';
 
 import css from './Footer.module.scss';
 
-const Footer = ({ className }) => {
+const Footer = ({ colors, id, className }) => {
   return (
-    <footer className={`${className} ${css.footer}`}>
-      <div>
-        <div className={css.social}>
-          <Social />
-        </div>
-        <div className={css.info}>
-          <Legal />
-        </div>
-        <div className={css.siteMap}>
-          <Sitemap />
-        </div>
-        <div className={css.backToTop}>
-          <BackToTop />
-        </div>
+    <footer
+      style={{ color: colors.primary }}
+      id={id}
+      className={`${css.footer} ${className}`}
+    >
+      <div className={css.social}>
+        <Social />
+      </div>
+
+      <div className={css.info}>
+        <Legal />
+      </div>
+
+      <div className={css.siteMap}>
+        <Sitemap colors={colors} />
+      </div>
+
+      <div className={css.backToTop}>
+        <BackToTop colors={colors} />
       </div>
     </footer>
   );

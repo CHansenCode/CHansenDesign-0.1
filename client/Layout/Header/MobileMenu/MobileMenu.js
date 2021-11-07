@@ -7,7 +7,7 @@ import css from './MobileMenu.module.scss';
 
 const MobileMenu = ({ mobNavOpen, setMobNavOpen, colors }) => {
   return (
-    <div className={`${css.wrapper} ${mobNavOpen && css.mobNav_closed}`}>
+    <div className={`${css.wrapper} ${!mobNavOpen && css.mobNav_closed}`}>
       <div className={css.innerWrapper}>
         <div className={css.logo}>
           <Logo />

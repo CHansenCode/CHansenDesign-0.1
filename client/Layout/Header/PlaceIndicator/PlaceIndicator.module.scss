@@ -1,17 +1,17 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   width: 100%;
-  padding-left: 1rem;
-  h4 {
-    text-transform: capitalize;
-  }
+  padding-left: 2rem;
+  padding-top: 0.25rem;
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 800px) {
   .wrapper {
-    padding-left: 1rem;
+    h4 {
+      padding-right: 2rem;
+    }
   }
 }

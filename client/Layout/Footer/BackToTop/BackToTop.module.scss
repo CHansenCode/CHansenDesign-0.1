@@ -1,28 +1,29 @@
 .container {
   height: 100%;
   cursor: pointer;
-  button {
-    border: none;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    cursor: pointer;
+  transition: 0.2s ease;
 
-    > svg {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1rem;
-      margin-bottom: -1rem;
-    }
-    h4 {
-      margin-top: 1.5rem;
-      font-weight: 400;
-    }
+  > svg {
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 1rem;
+    margin-bottom: -1rem;
+  }
+
+  h4 {
+    margin-top: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+.container:hover {
+  > svg {
+    fill: currentColor;
   }
 }

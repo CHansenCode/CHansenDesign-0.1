@@ -4,7 +4,14 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { FaCloudShowersHeavy } from 'react-icons/fa';
 
-export const NextLink = ({ href, exact, activeColor, children, ...props }) => {
+export const NextLink = ({
+  href,
+  exact,
+  activeColor,
+  boxShadow,
+  children,
+  ...props
+}) => {
   const { pathname } = useRouter();
 
   const isActive = exact ? pathname === href : pathname.startsWith(href);
@@ -15,7 +22,10 @@ export const NextLink = ({ href, exact, activeColor, children, ...props }) => {
 
   const propStyle = {
     color: isActive ? activeColor : 'currentColor',
-    boxShadow: isActive ? 'inset -1rem -1rem 3rem -1.8rem currentColor' : null,
+    boxShadow:
+      boxShadow && isActive
+        ? 'inset -1rem -1rem 3rem -1.8rem currentColor'
+        : null,
   };
 
   return (

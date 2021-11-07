@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Hamburger = ({ ternary, size, onClick }) => {
+export const Hamburger = ({ ternary, size, id, className, onClick }) => {
   const propStyle = {
     wrapper: {
       height: size,
@@ -21,7 +21,12 @@ export const Hamburger = ({ ternary, size, onClick }) => {
     },
   };
   return (
-    <div style={{ ...propStyle.wrapper, ...inline.wrapper }} onClick={onClick}>
+    <div
+      id={id}
+      className={className}
+      style={{ ...propStyle.wrapper, ...inline.wrapper }}
+      onClick={onClick}
+    >
       <span style={{ ...propStyle.topBun, ...inline.span, ...inline.topBun }} />
       <span style={{ ...propStyle.meat, ...inline.span, ...inline.meat }} />
       <span style={{ ...propStyle.botBun, ...inline.span, ...inline.botBun }} />

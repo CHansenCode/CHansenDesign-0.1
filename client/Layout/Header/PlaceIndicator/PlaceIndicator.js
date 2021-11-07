@@ -16,9 +16,6 @@ const PlaceIndicator = ({ colors }) => {
 
   return (
     <div className={css.wrapper}>
-      <h6 style={{ marginRight: '1rem', fontStyle: 'italic' }}>
-        You are here:
-      </h6>
       <h4 style={{ color: colors.secondary }}>.. {indicator}</h4>
     </div>
   );

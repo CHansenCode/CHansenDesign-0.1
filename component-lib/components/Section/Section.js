@@ -3,22 +3,35 @@ import React from 'react';
 import { SectionTitle } from './SectionTitle';
 
 export const Section = ({
-  myRef,
+  //custom
   title,
-  id,
+
+  //composition
   minHeight,
   maxWidth,
-  paddingBottom,
-  fullWidth,
+  padding,
+  margin,
+
+  //flex
   center,
   column,
+  fullWidth,
+
+  //html
+  myRef,
+  id,
+  className,
   children,
 }) => {
   const propStyles = {
+    //composition
     maxWidth: fullWidth ? '100%' : maxWidth,
     minHeight: minHeight,
-    paddingBottom: paddingBottom,
-    display: center && 'flex',
+    padding: padding,
+    margin: margin,
+
+    //flex
+    display: (center || column) && 'flex',
     alignItems: center && 'center',
     justifyContent: center && 'center',
     flexDirection: column && 'column',
@@ -26,7 +39,7 @@ export const Section = ({
   return (
     <>
       {title && <SectionTitle title={title} />}
-      <section ref={myRef} id={id} style={propStyles}>
+      <section id={id} className={className} ref={myRef} style={propStyles}>
         {children}
       </section>
     </>
@@ -34,5 +47,5 @@ export const Section = ({
 };
 
 Section.defaultProps = {
-  paddingBottom: '8vw',
+  padding: '0 0 8vw 0',
 };

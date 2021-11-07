@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Logo from '../../public/Logo/Logo';
 import PlaceIndicator from './PlaceIndicator/PlaceIndicator';
-import { List, Item, Button } from 'chansencode-lib';
+import { List, Item, Hamburger } from 'chansencode-lib';
 import { NextLink } from '@/components/NextLink';
 
 import MobileMenu from './MobileMenu/MobileMenu';
@@ -41,6 +41,7 @@ const Header = ({ colors, className }) => {
                 activeColor={colors.secondary}
                 key={`${link.title}${i}`}
                 href={link.route}
+                boxShadow
               >
                 <Item className={css.link} text={link.title} />
               </NextLink>
@@ -48,7 +49,14 @@ const Header = ({ colors, className }) => {
           </List>
         </nav>
 
-        <Hamburger onClick={() => setMobNavOpen(!mobNavOpen)} />
+        <div className={css.hamburger}>
+          <Hamburger
+            id="hamburger"
+            size="100%"
+            ternary={!mobNavOpen}
+            onClick={() => setMobNavOpen(!mobNavOpen)}
+          />
+        </div>
         <MobileMenu
           colors={colors}
           mobNavOpen={mobNavOpen}
@@ -56,16 +64,6 @@ const Header = ({ colors, className }) => {
         />
       </header>
     </>
-  );
-};
-
-const Hamburger = ({ onClick }) => {
-  return (
-    <div onClick={onClick} className={css.hamburger}>
-      <div>__</div>
-      <div>__</div>
-      <div>__</div>
-    </div>
   );
 };
 
