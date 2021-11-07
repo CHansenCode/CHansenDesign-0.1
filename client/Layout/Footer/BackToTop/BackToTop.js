@@ -14,7 +14,7 @@ const BackToTop = ({ colors }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => scrollToTop()}
-      style={{ color: hovered ? colors.secondary : colors.primary }}
+      style={{ color: hovered ? colors && colors.secondary : colors.primary }}
     >
       <FaChevronUp size="2rem" fill="transparent" />
       <FaChevronUp size="2rem" fill="transparent" />

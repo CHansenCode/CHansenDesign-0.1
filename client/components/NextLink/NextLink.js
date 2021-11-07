@@ -42,11 +42,6 @@ const inline = {
   color: 'currentColor',
 };
 
-NextLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  exact: PropTypes.bool,
-};
-
 NextLink.defaultProps = {
   exact: false,
 };
