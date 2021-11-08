@@ -1,4 +1,4 @@
-import css from "./Button.module.scss";
+import css from './Button.module.scss';
 
 const Button = ({ text, padding, margin, onClick, className, children }) => {
   const propStyles = {
@@ -6,7 +6,11 @@ const Button = ({ text, padding, margin, onClick, className, children }) => {
     margin: margin,
   };
   return (
-    <button className={`${className} ${css.button}`} style={propStyles} onClick={onClick}>
+    <button
+      className={`${css.button} ${className}`}
+      style={propStyles}
+      onClick={onClick}
+    >
       {text}
       {children}
     </button>

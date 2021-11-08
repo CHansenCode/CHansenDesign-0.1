@@ -2,12 +2,22 @@ import React from 'react';
 
 import css from './Button.module.scss';
 
-export const Button = ({ text, fontSize, padding, margin, onClick, type }) => {
+export const Button = ({
+  text,
+  fontSize,
+  padding,
+  margin,
+  noClick,
+  onClick,
+  type,
+  children,
+}) => {
   const propStyle = {
     margin: margin,
     padding: padding,
     fontSize: fontSize,
     border: 'thin solid currentColor',
+    pointerEvents: noClick && 'none',
   };
 
   return (
@@ -24,13 +34,14 @@ export const Button = ({ text, fontSize, padding, margin, onClick, type }) => {
       }`}
       style={propStyle}
     >
+      {children}
       {text}
+      {!children && !text && 'Empty props'}
     </button>
   );
 };
 
 Button.defaultProps = {
-  text: 'text prop empty!',
   fontSize: '16px',
   padding: '0.5rem 0.75rem',
   margin: '0',
