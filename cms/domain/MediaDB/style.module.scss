@@ -1,0 +1,32 @@
+.wrapper {
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template:
+    'header' 200px
+    'view' 1fr / 1fr;
+
+  .header {
+    grid-area: header;
+    border-bottom: thin solid;
+  }
+  .view {
+    grid-area: view;
+  }
+  .form {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+
+    height: 100vh;
+    width: 30rem;
+
+    background-color: #fff;
+    border-left: thin solid;
+    box-shadow: 0 0 5rem -3rem currentColor;
+  }
+  .form_open {
+  }
+}

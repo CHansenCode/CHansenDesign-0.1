@@ -9,6 +9,7 @@ export const Input = ({
   required,
   infoOnHover,
   id,
+  type,
   className,
   value,
   onChange,
@@ -34,6 +35,7 @@ export const Input = ({
         <input
           id={id}
           placeholder={placeholder}
+          type={type}
           onFocus={() => onFocus()}
           onBlur={() => onBlur()}
           value={value}

@@ -1,17 +1,76 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Form, Input, Textarea } from '@/components';
-import { Logo } from 'chansencode-lib';
+import { Form, Input } from '@/components';
+import { Button } from 'chansencode-lib';
+
+import { onSubmitLoginUser } from '@/actions/auth.actions';
+
+import css from './Login.module.scss';
 
 export const Login = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormdata] = useState({
-    name: '',
+    username: '',
     password: '',
   });
+  const [valid, setValid] = useState({
+    username: false,
+    password: false,
+  });
+  const [allValid, setAllValid] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  //#region validation
+  useEffect(() => {
+    // all but   -
+    var forbidden = /[!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?¤]+/;
+    formData.username.length > 2 && !forbidden.test(formData.username)
+      ? setValid({ ...valid, username: true })
+      : setValid({ ...valid, username: false });
+  }, [formData.username]);
+  useEffect(() => {
+    // all but   -!?
+    var forbidden = /[@#$%^&*()_+\=\[\]{};':"\\|,.<>\/¤]+/;
+    formData.password.length > 2 && !forbidden.test(formData.password)
+      ? setValid({ ...valid, password: true })
+      : setValid({ ...valid, password: false });
+  }, [formData.password]);
+  useEffect(() => {
+    valid.username && valid.password ? setAllValid(true) : setAllValid(false);
+  }, [valid]);
+  //#endregion
+
+  const failedAuth = useSelector(state => state.errorHandler.loginCredentials);
+
+  async function onSubmit() {
+    console.log('click');
+    dispatch(onSubmitLoginUser(formData, setLoading));
+  }
+
   return (
-    <Form>
-      <Input />
-      <Input />
-    </Form>
+    <div className={css.wrapper}>
+      <Form title="CHansenDesign CMS login">
+        <br />
+        <Input
+          label="username"
+          onChange={e => setFormdata({ ...formData, username: e.target.value })}
+        />
+        <Input
+          label="password"
+          type="password"
+          onChange={e => setFormdata({ ...formData, password: e.target.value })}
+        />
+
+        <div style={{ width: '80%' }}>
+          {allValid ? (
+            <Button margin="2rem 0 0 0" text="Login" onClick={onSubmit} />
+          ) : (
+            <Button margin="2rem 0 0 0" text="Enter credentials" />
+          )}
+        </div>
+      </Form>
+    </div>
   );
 };

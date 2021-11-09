@@ -1,0 +1,16 @@
+.form {
+  padding: 1rem;
+  > header {
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .title {
+    padding-bottom: 1rem;
+  }
+  .actionButtons {
+    display: flex;
+    justify-content: space-between;
+  }
+}

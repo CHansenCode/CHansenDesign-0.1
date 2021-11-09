@@ -3,27 +3,51 @@ import React from 'react';
 import css from './Button.module.scss';
 
 export const Button = ({
+  //content
   text,
+  children,
+  //square
+  size,
+  //sizing
   fontSize,
   padding,
   margin,
-  noClick,
-  onClick,
+  //styling
+  borderRadius,
+  bgc,
+  boxShadow,
+  //template-stylings
   type,
-  children,
+  //html
+  id,
+  className,
+  style,
+  onClick,
+  noClick,
 }) => {
   const propStyle = {
+    //adding 'size' prop prompts square shape
+    height: size && size,
+    width: size && size,
+
+    //responsive sizing
+    fontSize: fontSize,
     margin: margin,
     padding: padding,
-    fontSize: fontSize,
-    border: 'thin solid currentColor',
+
+    //propStyling
+    borderRadius: borderRadius,
+    backgroundColor: bgc,
+    boxShadow: boxShadow,
+
     pointerEvents: noClick && 'none',
   };
 
   return (
     <button
+      id={id}
       onClick={onClick}
-      className={`${css.button} ${
+      className={`${css.button} ${className} ${
         type === 'yellow'
           ? css.yellow
           : type === 'red'
@@ -32,11 +56,11 @@ export const Button = ({
           ? css.green
           : ''
       }`}
-      style={propStyle}
+      style={{ ...propStyle, ...style }}
     >
       {children}
       {text}
-      {!children && !text && 'Empty props'}
+      {!children && !text && 'text & children prop empty'}
     </button>
   );
 };

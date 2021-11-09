@@ -1,17 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import Section from '../../components/Section/Section';
-import { Button } from 'chansencode-lib';
+import { Button, Section } from 'chansencode-lib';
+import { MediaDB } from '@/domain';
 
-import DatabaseViewer from '../../domain/DatabaseViewer';
-import Loading from '../../components/Loading/Loading';
-
-import DBEditor from '../../domain/DBeditor/DBEditor';
+import css from './media.module.scss';
 
 const media = ({ meta, setMeta }) => {
   return (
-    <Section flex height="100vh">
-      <DBEditor />
+    <Section flex minHeight="100vh" maxHeight="100vh">
+      <MediaDB />
     </Section>
   );
 };

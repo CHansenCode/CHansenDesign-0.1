@@ -32,7 +32,6 @@ const DBEditor = () => {
   });
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getMedia());
   }, []);

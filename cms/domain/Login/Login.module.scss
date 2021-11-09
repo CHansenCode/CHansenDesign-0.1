@@ -1,0 +1,11 @@
+.wrapper {
+  min-width: 320px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 320px) {
+  .wrapper {
+    min-width: 0px;
+    width: 90%;
+  }
+}

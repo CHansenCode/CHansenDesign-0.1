@@ -1,0 +1,10 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template:
+    'title' 5rem
+    'filters' 1fr / 1fr;
+}

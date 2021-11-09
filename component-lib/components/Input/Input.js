@@ -8,6 +8,7 @@ export const Input = ({
   valid,
   required,
   infoOnHover,
+  type,
   id,
   className,
   value,
@@ -33,6 +34,7 @@ export const Input = ({
       <div className={`${css.inputWrapper} ${valid && css.valid}`}>
         <input
           id={id}
+          type={type}
           placeholder={placeholder}
           onFocus={() => onFocus()}
           onBlur={() => onBlur()}
