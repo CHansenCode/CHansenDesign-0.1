@@ -1,5 +1,6 @@
-@import "../../styles/colors";
-@import "../../styles/config";
+@import '../../styles/colors';
+
+$nav-width: 16rem;
 
 .header {
   z-index: 100;
@@ -20,9 +21,9 @@
 
   display: grid;
   grid-template:
-    "heading" auto
-    "lists" 1fr
-    "footer" 6rem / 100%;
+    'heading' auto
+    'lists' 1fr
+    'footer' 6rem / 100%;
 
   border-right: solid;
   box-shadow: 0 0 5rem -3rem currentColor;

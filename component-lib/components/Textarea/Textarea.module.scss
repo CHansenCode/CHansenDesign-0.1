@@ -52,8 +52,8 @@
     padding: 0.25rem 0.5rem;
     width: 100%;
     transition: 0s ease;
-    border: thin solid currentColor;
-    outline: none;
+    border-color: currentColor;
+    outline-color: currentColor;
   }
   .checkmark {
     position: absolute;

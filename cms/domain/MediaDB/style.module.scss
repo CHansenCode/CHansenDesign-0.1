@@ -1,4 +1,4 @@
-.wrapper {
+.main {
   height: 100vh;
   width: 100%;
 
@@ -14,19 +14,48 @@
   .view {
     grid-area: view;
   }
-  .form {
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    right: 0;
+}
 
-    height: 100vh;
-    width: 30rem;
+$form_width: 32rem;
+.main .form_wrapper {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: (-$form_width);
 
-    background-color: #fff;
-    border-left: thin solid;
-    box-shadow: 0 0 5rem -3rem currentColor;
-  }
-  .form_open {
-  }
+  height: 100vh;
+  width: $form_width;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: thin solid;
+  box-shadow: 0 0 5rem -3rem currentColor;
+
+  transition: 0.4s ease;
+}
+.main .form_open {
+  right: 0;
+}
+.open_toggle_btn {
+  position: absolute;
+  z-index: 1000;
+  top: 3rem;
+  right: 5rem;
+
+  height: 7rem;
+  width: 7rem;
+
+  color: green !important;
+  background-color: #fff !important;
+  border-radius: 50%;
+
+  transition: 0.5s ease !important;
+}
+.open_toggle_btn_formOpen {
+  $size: 2rem;
+  right: ($form_width - ($size / 2));
+
+  height: $size;
+  width: $size;
+
+  color: red !important;
 }

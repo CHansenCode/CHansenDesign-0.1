@@ -1,70 +1,92 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getMedia } from '../../actions/media.actions';
-
 import { Form, View, Header } from './';
+import { Button } from 'chansencode-lib';
+import { mediaServer } from '@/config';
+
+import {
+  getMedia,
+  createMedia,
+  updateMedia,
+} from '../../actions/media.actions';
 
 import css from './style.module.scss';
 
 export const MediaDB = () => {
   const dispatch = useDispatch();
+
   const [showForm, setShowForm] = useState(false);
   const [view, setView] = useState('list');
   const [activeId, setActiveId] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
     alt: '',
+    excerpt: '',
     description: '',
-    height: 0,
-    width: 0,
-    fileName: '',
+
+    category: '',
+    project: '',
+    drawingType: '',
     tags: [],
     programs: [],
-    urls: {
-      root: '',
-      full: '',
-      regular: '',
-      small: '',
-      thumb: '',
-    },
-    createdBy: '',
-    createdAt: '',
+
+    scale: 0,
+    northRotation: 0,
+
+    url: '',
   });
 
   useEffect(() => {
     dispatch(getMedia());
   }, [dispatch]);
 
+  const selectedPost = useSelector(state =>
+    activeId ? state.media.find(mediaPost => mediaPost._id === activeId) : null,
+  );
+  useEffect(() => {
+    selectedPost && setFormData(selectedPost);
+  }, [selectedPost]);
+
   function clear() {
     setActiveId(null);
+    setShowForm(false);
     setFormData({
       title: '',
       alt: '',
+      excerpt: '',
       description: '',
-      height: 0,
-      width: 0,
-      fileName: '',
+
+      //indexing
+      category: '',
+      project: '',
+      drawingType: '',
       tags: [],
       programs: [],
-      urls: {
-        root: '',
-        full: '',
-        regular: '',
-        small: '',
-        thumb: '',
-      },
-      createdBy: '',
-      createdAt: '',
+
+      //advanced options
+      scale: 0,
+      northRotation: 0,
+
+      url: '',
     });
+  }
+
+  async function handleSubmit() {
+    activeId ? dispatch(updateMedia) : dispatch(createMedia(formData));
   }
 
   const mediaData = useSelector(state => state.media);
 
   return (
-    <div className={css.wrapper}>
+    <div className={css.main}>
       <header className={css.header}>
-        <Header setView={setView} activeId={activeId} />
+        {formData.url}
+        <Header
+          setView={setView}
+          activeId={activeId}
+          setShowForm={setShowForm}
+        />
       </header>
 
       <div className={css.view}>
@@ -76,14 +98,28 @@ export const MediaDB = () => {
         />
       </div>
 
+      <>
+        <Button
+          text={activeId || showForm ? 'X' : '+ New Post'}
+          className={`${css.open_toggle_btn} ${
+            (activeId || showForm) && css.open_toggle_btn_formOpen
+          }`}
+          onClick={
+            activeId || showForm ? () => clear() : () => setShowForm(true)
+          }
+        />
+      </>
       <aside
-        className={`${css.form} ${(activeId || showForm) && css.form_open}`}
+        className={`${css.form_wrapper} ${
+          (activeId || showForm) && css.form_open
+        }`}
       >
         <Form
           formData={formData}
           setFormData={setFormData}
           activeId={activeId}
           onClose={() => clear()}
+          handleSubmit={handleSubmit}
         />
       </aside>
     </div>

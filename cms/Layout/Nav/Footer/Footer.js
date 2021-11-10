@@ -1,10 +1,10 @@
-import NavLink from "../NavLink/NavLink";
+import NavLink from '../NavLink/NavLink';
 
-import { VscCalendar, VscHome } from "react-icons/vsc";
-import { BsChatSquareDots } from "react-icons/bs";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { VscCalendar, VscHome } from 'react-icons/vsc';
+import { BsChatSquareDots } from 'react-icons/bs';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 
-import css from "./navFooter.module.scss";
+import css from './navFooter.module.scss';
 
 const Footer = ({ children }) => {
   return (
@@ -26,7 +26,6 @@ const Footer = ({ children }) => {
           <BsChatSquareDots />
         </NavLink>
       </ul>
-      {children}
     </footer>
   );
 };

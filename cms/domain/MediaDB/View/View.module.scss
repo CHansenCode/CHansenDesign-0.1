@@ -3,48 +3,75 @@
   height: 100%;
   width: 100%;
   background-color: #fff;
+  padding: 0.5rem;
 }
 
 .ul {
   display: flex;
-  .li {
-    display: flex;
-    .keyValue {
-      margin-left: 1rem;
-    }
-    .title {
+  li {
+    align-items: center;
+    white-space: nowrap;
+    h5 {
       font-weight: 700;
     }
   }
-}
-//LIST VIEW
-.list {
-  .li {
-    width: 100%;
-    padding: 1rem;
-    border: thin solid;
-  }
-  .keyValue {
-    white-space: nowrap;
+  li:hover {
+    color: coral;
+    box-shadow: inset 0 0 1rem -0.5rem currentColor;
+    cursor: pointer;
   }
 }
 
-//THUMB VIEW
-.thumb {
+$list_height: 2.5rem;
+$ul_first_Child_ml: 1rem;
+
+.ul_list_view {
+  flex-direction: column;
+  padding: 0 0.5rem;
+  li {
+    border: thin solid lightblue;
+    margin: 0.15rem;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    > * {
+      padding: 0 0.5rem;
+      border-right: thin dashed;
+      overflow: hidden;
+    }
+  }
+}
+.list_view_header {
+  height: $list_height;
+  padding-left: 0.5rem;
+  li {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    h5 {
+      padding-left: 0.25rem;
+      color: coral;
+      font-weight: 700;
+    }
+    svg {
+      height: 1.5rem;
+    }
+  }
+  > :nth-child(1) {
+    padding-left: $ul_first_Child_ml;
+  }
+}
+
+.ul_thumb_view {
   padding: 1rem;
-  .li {
-    display: grid;
-    width: 300px;
-
+  li {
+    width: minmax(200px, 1fr);
     padding: 1rem;
-
     border: thin solid lightblue;
     border-radius: 0.5rem;
     box-shadow: 0 0 2rem -1rem currentColor;
 
     overflow: hidden;
-  }
-  .keyValue {
   }
 }
 

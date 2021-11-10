@@ -8,3 +8,10 @@
     'title' 5rem
     'filters' 1fr / 1fr;
 }
+
+.header .buttonRow {
+  display: flex;
+  > button {
+    margin-left: 1rem;
+  }
+}

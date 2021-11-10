@@ -1,16 +1,58 @@
 .form {
-  padding: 1rem;
-  > header {
-    > div {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  .title {
-    padding-bottom: 1rem;
-  }
-  .actionButtons {
+  min-height: 100vh;
+  padding: 3rem 2rem 2rem 2rem;
+  display: grid;
+  grid-template:
+    'header' 6rem
+    'basic' min-content
+    'advanced options' 1fr
+    'footer' auto / 1fr;
+  .header {
     display: flex;
     justify-content: space-between;
+    .title {
+      h4 {
+        padding-left: 1rem;
+        color: coral;
+      }
+    }
+    .image {
+      > img {
+        height: 8rem;
+      }
+    }
+  }
+  .saveButton {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.form .closeButton {
+  position: absolute;
+  top: 1rem;
+  left: -1rem;
+  background-color: #fff;
+  white-space: nowrap;
+  border-radius: 50%;
+}
+
+.foldable {
+  overflow: hidden;
+  height: 2rem;
+  border: thin dashed;
+  border-radius: 0.5rem;
+  > button {
+    height: 2rem;
+    padding: 0 0.5rem !important;
+    border: transparent !important;
+    h5 {
+      margin-right: 1rem;
+      font-weight: 700;
+    }
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 }

@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const mediaSchema = mongoose.Schema({
   //VIEW
   title: String,
   description: String,
   excerpt: String,
+
   scale: Number,
   northRotation: { type: Number, min: 0, max: 360 },
 
@@ -12,17 +13,17 @@ const mediaSchema = mongoose.Schema({
   alt: String,
 
   //INDEXING
-  category: String, //architecture, webdevelopment ....
-  drawingType: String, //Elevation, Plan, Section ....
-  project: String, //'ishallen', 'new kitchen 2.0' ....
-  stage: String, //'planning', 'project' ....
-  drawingType: String, //illustration, drawing ....
+  category: String,
+  drawingType: String,
+  project: String,
+  stage: String,
+  drawingType: String,
   tags: Array,
   programs: Array,
 
   //FILE
   src: {
-    url: String, //optimized for web, standard
+    url: String,
     filename: String,
     url_original: String,
     url_3200: String,
@@ -38,10 +39,10 @@ const mediaSchema = mongoose.Schema({
   },
   createdBy: {
     type: String,
-    default: "CHansen",
+    default: 'CHansen',
   },
 });
 
-const Media = mongoose.model("Media", mediaSchema, "Media");
+const Media = mongoose.model('Media', mediaSchema, 'Media');
 
 export default Media;
