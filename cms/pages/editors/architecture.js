@@ -1,8 +1,7 @@
-import Architecture from '../../domain/Architecture';
-import Section from '../../components/Section/Section';
+import Section from '@/components/Section/Section';
 
 const architecture = () => {
-  return <Section>{/* <Architecture /> */}</Section>;
+  return <Section>Architecture Editor</Section>;
 };
 
 export default architecture;

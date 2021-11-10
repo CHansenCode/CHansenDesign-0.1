@@ -1,24 +1,20 @@
-@import "../../../styles/colors";
-
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  ul {
+  > ul {
     width: 100%;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.25rem;
+    margin-bottom: 0.5vw !important;
 
-    //list heading
     h4 {
       text-align: center;
       font-size: 1.1rem;
-      color: $interaction;
       margin: 0;
     }
-    //list items
     li {
+      padding: 0;
+      list-style: none;
       width: 100%;
       text-align: center;
     }
@@ -28,4 +24,8 @@
     margin-bottom: 0;
     padding-bottom: 0.25rem;
   }
+}
+
+.ul {
+  margin-bottom: 1rem;
 }

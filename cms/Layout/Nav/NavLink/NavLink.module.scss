@@ -22,8 +22,14 @@
     opacity: 0;
   }
   &:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 3rem -2rem coral;
     h5 {
       opacity: 1;
     }
   }
+}
+
+.active {
+  box-shadow: inset -1rem -1rem 3rem -1.5rem currentColor;
 }

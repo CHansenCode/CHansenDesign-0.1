@@ -1,5 +1,7 @@
 import React from 'react';
 
+import css from './List.module.scss';
+
 export const List = ({ margin, padding, className, children, horizontal }) => {
   const propStyle = {
     display: horizontal && 'flex',
@@ -8,15 +10,13 @@ export const List = ({ margin, padding, className, children, horizontal }) => {
   };
 
   return (
-    <ul className={className} style={({ ...inline }, { ...propStyle })}>
+    <ul
+      className={`${css.list} ${className}`}
+      style={({ ...inline }, { ...propStyle })}
+    >
       {children}
     </ul>
   );
-};
-
-List.defaultProps = {
-  margin: '0',
-  padding: '0',
 };
 
 const inline = {

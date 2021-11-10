@@ -27,6 +27,8 @@ export const createMedia = formData => async dispatch => {
   category && category == category + '/';
   project && project == project + '/';
 
+  const localToken = localStorage.getItem('jwt-token');
+
   const dataPost = {
     title: formData.title,
     description: formData.description,

@@ -1,19 +1,27 @@
-import Navlink from "../NavLink/NavLink";
+import Navlink from '../NavLink/NavLink';
+import { List } from 'chansencode-lib';
 
-import navSetup from "../../../config/navSetup.json";
-import css from "./Lists.module.scss";
+import css from './Lists.module.scss';
 
-const Lists = () => {
+import navSetup from '@/config/navSetup.json';
+
+const Lists = ({ meta }) => {
   return (
     <div className={css.wrapper}>
-      {navSetup.map((category) => (
-        <ul key={category.title}>
-          <h4>{category.title}</h4>
+      {navSetup.map(category => (
+        <List className={css.ul} key={category.title}>
+          <h4 style={{ color: meta.sc }}>{category.title}</h4>
 
-          {category.subPages.map((page) => (
-            <Navlink key={page.title} title={page.title} href={page.pageRoute} urlBarName={page.urlBarName} />
+          {category.subPages.map(page => (
+            <Navlink
+              key={page.title}
+              title={page.title}
+              href={page.pageRoute}
+              urlBarName={page.urlBarName}
+              activeColor={meta.sc}
+            />
           ))}
-        </ul>
+        </List>
       ))}
     </div>
   );

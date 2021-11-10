@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -15,7 +16,8 @@ import css from './Nav.module.scss';
 import { logoutUser } from '../../actions/auth.actions';
 
 //COMPONENT
-const Nav = ({ meta, setMeta }) => {
+const Nav = ({ meta, setMeta, propStyle }) => {
+  const [hideNav, setHideNav] = useState(false);
   const dispatch = useDispatch();
 
   let loggedIn = useSelector(state => state.auth.user);
@@ -33,18 +35,13 @@ const Nav = ({ meta, setMeta }) => {
       className={`${css.header} ${!meta.username && css.header_loggedOut}`}
     >
       <nav className={`${css.nav}`}>
-        <Header>
+        <Header className={css.header}>
           <Image src="https://media.chansen.design/logo.jpg" />
         </Header>
 
-        <Lists />
+        <Lists meta={meta} className={css.navLinks} />
 
-        <Footer>
-          <Button
-            text="Log out"
-            onClick={() => onClickLogOut(dispatch, setMeta)}
-          />
-        </Footer>
+        <Footer meta={meta} className={css.footer} />
       </nav>
     </header>
   );

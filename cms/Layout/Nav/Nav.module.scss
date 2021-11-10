@@ -1,8 +1,7 @@
-@import '../../styles/colors';
-
 $nav-width: 16rem;
 
 .header {
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
@@ -11,7 +10,6 @@ $nav-width: 16rem;
 .header_loggedOut {
   opacity: 0;
   pointer-events: none;
-  left: $nav-width;
 }
 
 .nav {
@@ -31,17 +29,12 @@ $nav-width: 16rem;
   .heading {
     grid-area: heading;
   }
-  .infoBox {
-    grid-area: infobox;
-  }
   .lists {
     grid-area: lists;
   }
   .footer {
     grid-area: footer;
   }
-
-  background: $nav-bg;
 }
 
 @media screen and (max-width: 850px) {

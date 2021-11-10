@@ -1,10 +1,9 @@
-import Section from "../../components/Section/Section";
-import Tickets from "../../domain/Tickets";
+import Section from '../../components/Section/Section';
 
 const tickets = ({ meta, setMeta }) => {
   return (
-    <Section minHeight="100vh">
-      <Tickets />
+    <Section center minHeight="100vh">
+      tickets
     </Section>
   );
 };

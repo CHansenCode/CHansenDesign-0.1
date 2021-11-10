@@ -34,15 +34,32 @@ const Layout = ({ meta, setMeta, children }) => {
     dispatch({ type: SET_CURRENT_USER, payload: meta.username });
   }, [meta]);
 
+  const propStyle = {
+    nav: {},
+  };
+
   return (
     <>
       <Dev />
+
       <Head>
         <title>{siteSettings.headTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav meta={meta} setMeta={setMeta} route={currentRoute} />
-      <main className={!meta.username ? css.loggedOut : null}>{children}</main>
+
+      <Nav
+        meta={meta}
+        setMeta={setMeta}
+        route={currentRoute}
+        propStyle={propStyle}
+      />
+
+      <main
+        style={{ color: meta.pc }}
+        className={!meta.username ? css.loggedOut : null}
+      >
+        {children}
+      </main>
     </>
   );
 };

@@ -7,7 +7,7 @@ import css from './media.module.scss';
 
 const media = ({ meta, setMeta }) => {
   return (
-    <Section flex minHeight="100vh" maxHeight="100vh">
+    <Section flex padding="0" minHeight="100vh" maxHeight="100vh">
       <MediaDB />
     </Section>
   );

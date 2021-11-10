@@ -49,23 +49,43 @@ export const formConstructor = {
       type: 'input',
     },
     {
-      label: 'filename',
-      key: 'filename',
-      type: 'input',
-    },
-    {
       label: 'alt',
       key: 'alt',
       type: 'textarea',
       rows: 3,
     },
     {
-      label: 'url',
-      key: 'url',
+      label: 'filename',
+      key: 'filename',
       type: 'input',
+    },
+    {
+      label: 'category',
+      key: 'category',
+      type: 'select',
+      options: ['Architecture', 'Webdesign', 'Graphics'],
+    },
+    {
+      label: 'project',
+      key: 'project',
+      type: 'select',
+      options: [
+        'svanen',
+        'kitchen',
+        'viking',
+        'annerberg',
+        'ishallen',
+        'table',
+      ],
     },
   ],
   advanced: [
+    {
+      label: 'description',
+      key: 'description',
+      type: 'textarea',
+      rows: '3',
+    },
     {
       label: 'scale',
       key: 'scale',
@@ -80,18 +100,6 @@ export const formConstructor = {
       label: 'drawingType',
       key: 'drawingType',
       type: 'input',
-    },
-    {
-      label: 'project',
-      key: 'project',
-      type: 'select',
-      options: ['svanen', 'viking', 'kitchen'],
-    },
-    {
-      label: 'category',
-      key: 'category',
-      type: 'select',
-      options: ['architecture', 'webdesign', 'graphics'],
     },
   ],
 };

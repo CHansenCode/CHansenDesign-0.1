@@ -5,6 +5,8 @@ import { Form, View, Header } from './';
 import { Button } from 'chansencode-lib';
 import { mediaServer } from '@/config';
 
+import { formConstructor } from './config';
+
 import {
   getMedia,
   createMedia,
@@ -20,9 +22,9 @@ export const MediaDB = () => {
   const [view, setView] = useState('list');
   const [activeId, setActiveId] = useState(null);
   const [formData, setFormData] = useState({
+    //basic
     title: '',
     alt: '',
-    excerpt: '',
     description: '',
 
     category: '',
@@ -31,11 +33,14 @@ export const MediaDB = () => {
     tags: [],
     programs: [],
 
+    //advanced
     scale: 0,
     northRotation: 0,
 
     url: '',
   });
+
+  const formDataConstruct = {};
 
   useEffect(() => {
     dispatch(getMedia());
@@ -54,7 +59,6 @@ export const MediaDB = () => {
     setFormData({
       title: '',
       alt: '',
-      excerpt: '',
       description: '',
 
       //indexing
@@ -82,6 +86,7 @@ export const MediaDB = () => {
     <div className={css.main}>
       <header className={css.header}>
         {formData.url}
+        {formData.category}
         <Header
           setView={setView}
           activeId={activeId}

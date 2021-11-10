@@ -1,4 +1,4 @@
-@import "../../../styles/colors";
+@import '../../../styles/colors';
 
 .footer {
   position: relative;
@@ -6,37 +6,32 @@
   width: 100%;
   display: grid;
   grid-template:
-    "list" 3rem
-    "button" 3rem / 1fr;
+    'menuButtons' 3rem
+    'logOut' 3rem / 1fr;
 }
-
 .footer ul {
   display: grid;
-  grid-template: "a b c d" 1fr / 1fr 1fr 1fr 1fr;
+  grid-template: 'a b c d' 1fr / 1fr 1fr 1fr 1fr;
   height: 100%;
   width: 100%;
   border-top: solid;
   li {
-    height: 3rem;
+    height: 100%;
+    width: 100%;
     border-right: solid;
+    padding: 0;
     a {
       display: flex;
       align-items: center;
       justify-content: center;
-      svg {
-        max-height: 1.75rem;
-        max-width: 1.75rem;
-      }
     }
   }
   :nth-last-child(1) {
     border-right: none;
   }
 }
+
 .footer button {
-  border: solid;
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
   width: 100%;
+  height: 3rem;
 }

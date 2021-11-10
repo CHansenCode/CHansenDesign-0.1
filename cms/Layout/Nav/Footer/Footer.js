@@ -4,28 +4,31 @@ import { VscCalendar, VscHome } from 'react-icons/vsc';
 import { BsChatSquareDots } from 'react-icons/bs';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 
-import css from './navFooter.module.scss';
+import { Button, List } from 'chansencode-lib';
 
-const Footer = ({ children }) => {
+import css from './Footer.module.scss';
+
+const Footer = ({ meta, setMeta, className }) => {
   return (
-    <footer className={css.footer}>
-      <ul>
-        <NavLink hover="Home" href="/landing">
-          <VscHome />
+    <footer className={`${css.footer} ${className}`}>
+      <List>
+        <NavLink activeColor={meta.sc} href="/landing">
+          <VscHome color={meta.pc} />
         </NavLink>
 
-        <NavLink hover="User settings" href="/users">
-          <AiOutlineUserAdd />
+        <NavLink activeColor={meta.sc} href="/users">
+          <AiOutlineUserAdd color={meta.pc} />
         </NavLink>
 
-        <NavLink hover="planning" href="/planning">
-          <VscCalendar />
+        <NavLink activeColor={meta.sc} href="/planning">
+          <VscCalendar color={meta.pc} />
         </NavLink>
 
-        <NavLink hover="InterCOM" href="/chat">
-          <BsChatSquareDots />
+        <NavLink activeColor={meta.sc} href="/chat">
+          <BsChatSquareDots color={meta.pc} />
         </NavLink>
-      </ul>
+      </List>
+      <Button padding="0" margin="0" text="Log out" />
     </footer>
   );
 };

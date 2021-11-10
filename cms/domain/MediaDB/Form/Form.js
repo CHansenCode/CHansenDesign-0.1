@@ -94,11 +94,36 @@ const InputField = ({ constructor, formData, setFormData }) => {
         />
       );
     case 'password':
-      return <Input type="password" />;
+      return (
+        <Input
+          type="password"
+          label={constructor.label}
+          infoOnHover={constructor.infoHover}
+          value={formData[constructor.key]}
+          rows={constructor.rows}
+          onChange={e =>
+            setFormData({ ...formData, [constructor.key]: e.target.value })
+          }
+        />
+      );
     case 'select':
       return (
-        <div>
-          <Button text="select" />
+        <div className={css.select}>
+          {constructor.label && <h5>{constructor.label}:</h5>}
+          <div className={css.options}>
+            {constructor.options.map((option, i) => (
+              <Button
+                text={option}
+                key={`${option}${i}`}
+                onClick={() =>
+                  formData[constructor.key] === option
+                    ? setFormData({ ...formData, [constructor.key]: '' })
+                    : setFormData({ ...formData, [constructor.key]: option })
+                }
+                className={option === formData[constructor.key] && css.selected}
+              />
+            ))}
+          </div>
         </div>
       );
     default:
@@ -117,11 +142,11 @@ const Fold = ({ children }) => {
   const [show, setShow] = useState(false);
   return (
     <div className={`${css.foldable} ${show && css.foldable_open}`}>
-      <Button>
+      {show && children}
+      <Button onClick={() => setShow(!show)}>
         <h5>Additional options:</h5>
         <AiOutlineExpandAlt />
       </Button>
-      {children}
     </div>
   );
 };
