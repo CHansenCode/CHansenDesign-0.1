@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@/components';
 import { Button } from 'chansencode-lib';
 
-import { onSubmitLoginUser } from '@/actions/auth.actions';
+import { onSubmitLoginUser } from '@/actions';
 
 import css from './Login.module.scss';
 
 export const Login = () => {
+  let user = window.localStorage.getItem('auth-token');
+
   const dispatch = useDispatch();
 
   const [formData, setFormdata] = useState({
@@ -20,7 +22,6 @@ export const Login = () => {
     password: false,
   });
   const [allValid, setAllValid] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   //#region validation
   useEffect(() => {
@@ -45,32 +46,37 @@ export const Login = () => {
   const failedAuth = useSelector(state => state.errorHandler.loginCredentials);
 
   async function onSubmit() {
-    console.log('click');
-    dispatch(onSubmitLoginUser(formData, setLoading));
+    dispatch(onSubmitLoginUser(formData));
   }
 
-  return (
-    <div className={css.wrapper}>
-      <Form title="CHansenDesign CMS login">
-        <br />
-        <Input
-          label="username"
-          onChange={e => setFormdata({ ...formData, username: e.target.value })}
-        />
-        <Input
-          label="password"
-          type="password"
-          onChange={e => setFormdata({ ...formData, password: e.target.value })}
-        />
+  return !user ? (
+    <main className={css.main}>
+      <div className={css.wrapper}>
+        <Form title="CHansenDesign CMS login">
+          <br />
+          <Input
+            label="username"
+            onChange={e =>
+              setFormdata({ ...formData, username: e.target.value })
+            }
+          />
+          <Input
+            label="password"
+            type="password"
+            onChange={e =>
+              setFormdata({ ...formData, password: e.target.value })
+            }
+          />
 
-        <div style={{ width: '80%' }}>
-          {allValid ? (
-            <Button margin="2rem 0 0 0" text="Login" onClick={onSubmit} />
-          ) : (
-            <Button margin="2rem 0 0 0" text="Enter credentials" />
-          )}
-        </div>
-      </Form>
-    </div>
-  );
+          <div style={{ width: '80%' }}>
+            {allValid ? (
+              <Button margin="2rem 0 0 0" text="Login" onClick={onSubmit} />
+            ) : (
+              <Button margin="2rem 0 0 0" text="Please enter credentials" />
+            )}
+          </div>
+        </Form>
+      </div>
+    </main>
+  ) : null;
 };

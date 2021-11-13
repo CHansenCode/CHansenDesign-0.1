@@ -1,4 +1,10 @@
-import { GET_PLANS, CREATE_PLAN, GET_PLAN, UPDATE_PLAN, DELETE_PLAN } from "../../actions/base.actionTypes";
+import {
+  GET_PLANS,
+  CREATE_PLAN,
+  GET_PLAN,
+  UPDATE_PLAN,
+  DELETE_PLAN,
+} from '@/actions/actionTypes';
 
 const planning = (plans = initialProps, action) => {
   switch (action.type) {
@@ -7,9 +13,11 @@ const planning = (plans = initialProps, action) => {
     case CREATE_PLAN:
       return [...plans, action.payload];
     case UPDATE_PLAN:
-      return plans.map((plan) => (plan._id === action.payload._id ? action.payload : plan));
+      return plans.map(plan =>
+        plan._id === action.payload._id ? action.payload : plan,
+      );
     case DELETE_PLAN:
-      return plans.filter((plan) => plan._id === action.payload);
+      return plans.filter(plan => plan._id === action.payload);
     default:
       return plans;
   }

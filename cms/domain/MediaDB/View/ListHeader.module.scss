@@ -1,0 +1,28 @@
+.header {
+  margin: 0 2rem;
+  border-bottom: thin solid rgba(120, 180, 180, 0.3);
+  .key_sortation {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header .key_sortation {
+  padding-left: 2rem;
+  h5 {
+    padding-bottom: 0.5rem;
+  }
+  > svg {
+    margin-left: 2rem;
+  }
+}
+
+.header .key_sortation:hover {
+  cursor: pointer;
+}
+.header_listView {
+  display: grid;
+}
+.header_thumbView {
+  display: flex;
+}

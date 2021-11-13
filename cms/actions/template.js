@@ -1,10 +1,16 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { GET_POSTS, CREATE_POST, GET_POST, UPDATE_POST, DELETE_POST } from "../actions/actionTypes";
+import {
+  GET_POSTS,
+  CREATE_POST,
+  GET_POST,
+  UPDATE_POST,
+  DELETE_POST,
+} from './actionTypes';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = () => async dispatch => {
   try {
     const { data } = await api.getTexts();
 
@@ -14,7 +20,7 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-export const createText = (post) => async (dispatch) => {
+export const createText = post => async dispatch => {
   try {
     const { data } = await axios.post(api, post);
 
@@ -24,7 +30,7 @@ export const createText = (post) => async (dispatch) => {
   }
 };
 
-export const getText = (id) => async (dispatch) => {
+export const getText = id => async dispatch => {
   try {
     const { data } = await axios.get(`${api}/${id}`);
 
@@ -34,7 +40,7 @@ export const getText = (id) => async (dispatch) => {
   }
 };
 
-export const patchText = (formData) => async (dispatch) => {
+export const patchText = formData => async dispatch => {
   try {
     const { data } = await axios.patch(`${api}/${formData._id}`, formData);
 
@@ -44,7 +50,7 @@ export const patchText = (formData) => async (dispatch) => {
   }
 };
 
-export const deleteText = () => async (dispatch) => {
+export const deleteText = () => async dispatch => {
   try {
     const { data } = await axios.delete(`${api}/${id}`);
 

@@ -1,5 +1,8 @@
+@use 'sass:math';
+
 .main {
-  min-height: 100vh;
+  position: relative;
+  height: 100%;
   width: 100%;
 
   display: grid;
@@ -9,7 +12,6 @@
 
   .header {
     grid-area: header;
-    border-bottom: thin solid;
   }
   .view {
     grid-area: view;
@@ -18,7 +20,7 @@
 
 $form_width: 32rem;
 .main .form_wrapper {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 0;
   right: (-$form_width);
@@ -26,7 +28,6 @@ $form_width: 32rem;
   height: 100vh;
   width: $form_width;
 
-  background-color: rgba(255, 255, 255, 0.9);
   border-left: thin solid;
   box-shadow: 0 0 5rem -3rem currentColor;
 
@@ -45,14 +46,14 @@ $form_width: 32rem;
   width: 7rem;
 
   color: green !important;
-  background-color: #fff;
   border-radius: 50%;
 
   transition: 0.4s ease !important;
 }
+
 .open_toggle_btn_formOpen {
   $size: 2rem;
-  right: ($form_width - ($size / 2));
+  right: ($form_width - math.div($form_width, 2));
 
   height: $size;
   width: $size;

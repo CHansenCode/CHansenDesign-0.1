@@ -1,8 +1,8 @@
-import { GET_STATISTICS } from "../actions/actionTypes";
+import { GET_STATISTICS } from './actionTypes';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getStatistics = () => async (dispatch) => {
+export const getStatistics = () => async dispatch => {
   try {
     const { data } = await api.getStatistics();
 

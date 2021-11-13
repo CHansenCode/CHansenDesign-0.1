@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Projects from "./Projects/Projects";
-import Project from "./Projects/Project";
-import Stages from "./Stages/Stages";
-import Stage from "./Stages/Stage";
-import Tasks from "./Tasks/Tasks";
-import Task from "./Tasks/Task";
-import Subtasks from "./Subtasks/Subtasks";
-import Subtask from "./Subtasks/Subtask";
+import Projects from './Projects/Projects';
+import Project from './Projects/Project';
+import Stages from './Stages/Stages';
+import Stage from './Stages/Stage';
+import Tasks from './Tasks/Tasks';
+import Task from './Tasks/Task';
+import Subtasks from './Subtasks/Subtasks';
+import Subtask from './Subtasks/Subtask';
 
-import ButtonsMenu from "./ButtonsMenu/ButtonsMenu";
+import ButtonsMenu from './ButtonsMenu/ButtonsMenu';
 
-import { getPlannings } from "../../actions/planningApp.actions";
+import { getPlannings } from '@/actions';
 
 export const PlanningApp = ({ array }) => {
   const dispatch = useDispatch();
@@ -34,23 +34,28 @@ export const PlanningApp = ({ array }) => {
     dispatch(getPlannings());
   }, [dispatch]);
 
-  let projectsArray = useSelector((state) => state.planning);
+  let projectsArray = useSelector(state => state.planning);
 
   useEffect(() => {
     if (activeId && activeId.length > 1) {
-      setActiveProject(projectsArray.find((project) => project.id === activeId));
+      setActiveProject(projectsArray.find(project => project.id === activeId));
     } else setActiveProject({});
   }, [activeId]);
 
   function clear() {
     setActiveId(null);
-    setController({ ...controller, isEditing: false, editInProcess: false, isResolvingSubtasks: false });
+    setController({
+      ...controller,
+      isEditing: false,
+      editInProcess: false,
+      isResolvingSubtasks: false,
+    });
   }
 
   return (
     <Projects controller={controller} activeId={activeId}>
       {projectsArray.length > 0 &&
-        projectsArray.map((project) => (
+        projectsArray.map(project => (
           <Project
             key={project.id}
             projectData={project}
@@ -90,7 +95,6 @@ export const PlanningApp = ({ array }) => {
                     key={stage.id}
                     data={stage}
                     stageIndex={stageIndex}
-
                     activeProject={activeProject}
                     setActiveProject={setActiveProject}
                     controller={controller}
@@ -115,7 +119,6 @@ export const PlanningApp = ({ array }) => {
                             data={task}
                             stageIndex={stageIndex}
                             taskIndex={taskIndex}
-
                             stageData={stage}
                             activeProject={activeProject}
                             setActiveProject={setActiveProject}
@@ -127,7 +130,6 @@ export const PlanningApp = ({ array }) => {
                             <Subtasks
                               stageIndex={stageIndex}
                               taskIndex={taskIndex}
-
                               controller={controller}
                               activeId={activeId}
                               projectData={project}

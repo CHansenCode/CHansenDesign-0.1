@@ -1,11 +1,16 @@
-import axios from "axios";
-import { GET_PLANS, CREATE_PLAN, UPDATE_PLAN, DELETE_PLAN } from "../actions/actionTypes";
+import axios from 'axios';
+import {
+  GET_PLANS,
+  CREATE_PLAN,
+  UPDATE_PLAN,
+  DELETE_PLAN,
+} from './actionTypes';
 
-import uniqueIdGenerator from "../utils/uniqueIdGenerator";
+import uniqueIdGenerator from '../utils/uniqueIdGenerator';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getPlannings = () => async (dispatch) => {
+export const getPlannings = () => async dispatch => {
   try {
     const { data } = await api.getPlannings();
 
@@ -15,35 +20,35 @@ export const getPlannings = () => async (dispatch) => {
   }
 };
 
-export const createPlanning = () => async (dispatch) => {
-  let username = window.localStorage.getItem("username");
+export const createPlanning = () => async dispatch => {
+  let username = window.localStorage.getItem('username');
   let newPlanning = {
     id: uniqueIdGenerator(),
     owners: [username],
     users: [username],
-    title: "",
-    deadline: "",
-    startTime: "",
-    category: "",
-    body: "",
+    title: '',
+    deadline: '',
+    startTime: '',
+    category: '',
+    body: '',
     stages: [
       {
         id: uniqueIdGenerator(),
-        title: "",
-        v: "0.0.1",
-        deadline: "",
-        body: "",
+        title: '',
+        v: '0.0.1',
+        deadline: '',
+        body: '',
         tasks: [
           {
             id: uniqueIdGenerator(),
-            title: "",
-            v: "0.0.1",
-            deadline: "",
+            title: '',
+            v: '0.0.1',
+            deadline: '',
             subtasks: [
               {
                 assignedTo: [],
                 id: uniqueIdGenerator(),
-                title: "",
+                title: '',
                 timeRemaining: 0,
                 resolved: false,
               },
@@ -62,7 +67,7 @@ export const createPlanning = () => async (dispatch) => {
   }
 };
 
-export const updatePlannings = (updatedPlanning) => async (dispatch) => {
+export const updatePlannings = updatedPlanning => async dispatch => {
   let id = updatedPlanning._id;
 
   try {
@@ -74,7 +79,7 @@ export const updatePlannings = (updatedPlanning) => async (dispatch) => {
   }
 };
 
-export const deletePlanning = (id) => async (dispatch) => {
+export const deletePlanning = id => async dispatch => {
   try {
     const { data } = await api.deletePlanning(id);
 

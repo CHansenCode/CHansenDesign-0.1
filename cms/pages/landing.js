@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Section from "../components/Section/Section";
-import ObjectViewer from "../components/ObjectViewer/ObjectViewer";
+import Section from '../components/Section/Section';
+import ObjectViewer from '../components/ObjectViewer/ObjectViewer';
 
-import css from "./styles/landing.module.scss";
+import css from './styles/landing.module.scss';
 
-import setStoreOnRefresh from "../utils/setStoreOnRefresh";
-import setMetaOnRefresh from "../utils/setMetaOnRefresh";
-import { SET_CURRENT_USER } from "../actions/actionTypes";
-
-import { getContacts } from "../actions/contact.actions";
-import { getIntercoms } from "../actions/intercom.actions";
-import { getMedia } from "../actions/media.actions";
-import { getPlannings } from "../actions/planningApp.actions";
-import { getStatistics } from "../actions/statistics.actions";
-import { getTexts } from "../actions/text.actions";
-import { getTickets } from "../actions/tickets.actions";
-import { getUsers } from "../actions/users.actions";
+import {
+  getContacts,
+  getIntercoms,
+  getMedia,
+  getPlannings,
+  getStatistics,
+  getTexts,
+  getTickets,
+  getUsers,
+} from '@/actions';
 
 const landing = ({ meta, setMeta }) => {
   const dispatch = useDispatch();
 
-  const storeData = useSelector((state) => state);
-  const username = useSelector((state) => state.auth.user);
+  const storeData = useSelector(state => state);
+  const username = useSelector(state => state.auth.user);
 
   return (
     <Section slideIn minHeight="100vh">
@@ -56,10 +54,6 @@ const landing = ({ meta, setMeta }) => {
       </div>
     </Section>
   );
-};
-
-const cow = {
-  hello: "lala",
 };
 
 const Button = ({ onClick, text }) => {

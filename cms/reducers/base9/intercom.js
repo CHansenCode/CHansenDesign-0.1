@@ -1,4 +1,8 @@
-import { GET_MY_INTERCOMS, POST_TO_INTERCOM, DELETE_INTERCOM_POST } from "../../actions/base.actionTypes";
+import {
+  GET_MY_INTERCOMS,
+  POST_TO_INTERCOM,
+  DELETE_INTERCOM_POST,
+} from '@/actions/actionTypes';
 
 const intercom = (intercomChats = initialProps, action) => {
   switch (action.type) {

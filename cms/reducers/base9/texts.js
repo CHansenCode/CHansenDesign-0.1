@@ -8,32 +8,34 @@ import {
   ADD_EMPTY_PARAGRAPH,
   DELETE_PARAGRAPH,
   UPDATE_PARAGRAPH,
-} from "../../actions/actionTypes";
+} from '@/actions/actionTypes';
 
 const texts = (texts = initialProps, action) => {
   switch (action.type) {
     case GET_TEXTS:
       return action.payload;
     case GET_TEXT:
-      return texts.map((text) => text._id === payload._id);
+      return texts.map(text => text._id === payload._id);
     case CREATE_TEXT:
       return [...texts, action.payload];
     case UPDATE_TEXT:
-      return texts.map((text) => (text._id === action.payload._id ? action.payload : text));
+      return texts.map(text =>
+        text._id === action.payload._id ? action.payload : text,
+      );
     case DELETE_TEXT:
-      return texts.filter((text) => text._id === action.payload);
+      return texts.filter(text => text._id === action.payload);
 
     case CREATE_NEW_PAGE:
-      return texts.map((text) => text._id === action.payload);
+      return texts.map(text => text._id === action.payload);
 
     case ADD_EMPTY_PARAGRAPH:
-      return texts.filter((text) => text._id === action.payload);
+      return texts.filter(text => text._id === action.payload);
 
     case DELETE_PARAGRAPH:
-      return texts.filter((text) => text._id === action.payload);
+      return texts.filter(text => text._id === action.payload);
 
     case UPDATE_PARAGRAPH:
-      return texts.filter((text) => text._id === action.payload);
+      return texts.filter(text => text._id === action.payload);
 
     default:
       return texts;

@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from "../../actions/base.actionTypes";
+import { SET_CURRENT_USER } from '@/actions/actionTypes';
 
 const auth = (auth = initialProps, action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const auth = (auth = initialProps, action) => {
 };
 
 const initialProps = {
-  user: "",
+  user: '',
   isAuthenticated: false,
 };
 

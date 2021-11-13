@@ -1,0 +1,36 @@
+.item {
+  border-radius: 1rem;
+  list-style: none;
+}
+.item .keyValue {
+  .keyValue {
+    display: flex;
+    align-items: center;
+  }
+}
+.item:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3rem -1rem currentColor;
+}
+
+.item_listView {
+  color: currentColor;
+}
+.item_listView .keyValue {
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.item_thumbView {
+  width: 300px;
+
+  padding: 1.5rem;
+  margin: 0 1rem 0 0;
+
+  border: thin dashed currentColor;
+}
+.item_thumbView .keyValue {
+  color: currentColor;
+  margin: 0;
+  padding: 0;
+}

@@ -1,65 +1,57 @@
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-import jwtDecode from 'jwt-decode';
 
 import Head from 'next/head';
 import Nav from './Nav/Nav';
 import Dev from './Dev/Dev';
+import Main from './Main';
+import { ClientOnly } from '@/components';
 
-import { useDispatch } from 'react-redux';
+import { ErrorMessage } from '@/domain';
+import { Login } from '@/domain';
 
-import siteSettings from '../config/siteSettings.json';
-import { SET_CURRENT_USER } from '../actions/actionTypes';
+import { storeRefresh, axiosUpdater } from '@/utils';
+
+import { siteMeta } from '../config';
 
 import css from './Layout.module.scss';
 
 const Layout = ({ meta, setMeta, children }) => {
-  const router = useRouter();
-  const dispatch = useDispatch();
-
-  let currentRoute = router.pathname;
+  storeRefresh();
 
   useEffect(() => {
-    let localToken = window.localStorage.getItem('jwtToken');
-    if (localToken) {
-      let decoded = jwtDecode(localToken);
-      setMeta({ ...meta, username: decoded.username });
-    } else {
-      return;
-    }
-  }, [currentRoute]);
-
-  useEffect(() => {
-    dispatch({ type: SET_CURRENT_USER, payload: meta.username });
-  }, [meta]);
+    axiosUpdater();
+  }, []);
 
   const propStyle = {
-    nav: {},
+    main: {
+      marginLeft: meta.showNav ? meta.navWidth : '0rem',
+      color: meta.darkmode ? meta.pcDarkmode : meta.pc,
+      background: meta.darkmode ? meta.bgDark : meta.bg,
+      width: meta.showNav ? `calc(100vw - ${meta.navWidth})` : `100vw`,
+    },
   };
 
   return (
     <>
-      <Dev />
-
       <Head>
-        <title>{siteSettings.headTitle}</title>
+        <title>{siteMeta.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav
-        meta={meta}
-        setMeta={setMeta}
-        route={currentRoute}
-        propStyle={propStyle}
-      />
+      {/* modals */}
+      {/* <ErrorMessage /> */}
 
-      <main
-        style={{ color: meta.pc }}
-        className={!meta.username ? css.loggedOut : null}
-      >
-        {children}
-      </main>
+      <ClientOnly>
+        <Nav meta={meta} setMeta={setMeta} />
+        <Main style={propStyle.main} className={css.main}>
+          {children}
+        </Main>
+        <Login />
+      </ClientOnly>
+
+      {process.env.NODE_ENV === 'development' && (
+        <Dev meta={meta} setMeta={setMeta} />
+      )}
     </>
   );
 };

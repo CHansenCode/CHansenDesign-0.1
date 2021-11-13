@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 import {
   GET_TEXTS,
@@ -10,11 +10,11 @@ import {
   ADD_EMPTY_PARAGRAPH,
   DELETE_PARAGRAPH,
   UPDATE_PARAGRAPH,
-} from "../actions/actionTypes";
+} from './actionTypes';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getTexts = () => async (dispatch) => {
+export const getTexts = () => async dispatch => {
   try {
     const { data } = await api.getTexts();
 
@@ -24,7 +24,7 @@ export const getTexts = () => async (dispatch) => {
   }
 };
 
-export const getText = (id) => async (dispatch) => {
+export const getText = id => async dispatch => {
   try {
     const { data } = await axios.get(`${api}/${id}`);
 
@@ -34,7 +34,7 @@ export const getText = (id) => async (dispatch) => {
   }
 };
 
-export const createText = (post) => async (dispatch) => {
+export const createText = post => async dispatch => {
   try {
     const { data } = await axios.post(api, post);
 
@@ -44,7 +44,7 @@ export const createText = (post) => async (dispatch) => {
   }
 };
 
-export const patchText = (formData) => async (dispatch) => {
+export const patchText = formData => async dispatch => {
   try {
     const { data } = await axios.patch(`${api}/${formData._id}`, formData);
 
@@ -54,7 +54,7 @@ export const patchText = (formData) => async (dispatch) => {
   }
 };
 
-export const deleteText = () => async (dispatch) => {
+export const deleteText = () => async dispatch => {
   try {
     const { data } = await axios.delete(`${api}/${id}`);
 
@@ -64,7 +64,7 @@ export const deleteText = () => async (dispatch) => {
   }
 };
 
-export const createNewPage = (pageTitle) => async (dispatch) => {
+export const createNewPage = pageTitle => async dispatch => {
   try {
     const { data } = await api.createNewPage(pageTitle);
 
@@ -73,7 +73,7 @@ export const createNewPage = (pageTitle) => async (dispatch) => {
     console.log(error.message);
   }
 };
-export const addEmptyParagraph = (pageId) => async (dispatch) => {
+export const addEmptyParagraph = pageId => async dispatch => {
   try {
     const { data } = await api.addEmptyParagraph(pageId);
 
@@ -82,7 +82,7 @@ export const addEmptyParagraph = (pageId) => async (dispatch) => {
     console.log(error.message);
   }
 };
-export const deleteParagraph = (pageId, paraId) => async (dispatch) => {
+export const deleteParagraph = (pageId, paraId) => async dispatch => {
   try {
     const { data } = await api.deleteParagraph(pageId, paraId);
 
@@ -91,7 +91,7 @@ export const deleteParagraph = (pageId, paraId) => async (dispatch) => {
     console.log(error.message);
   }
 };
-export const updateParagraph = (pageId, paraId) => async (dispatch) => {
+export const updateParagraph = (pageId, paraId) => async dispatch => {
   try {
     const { data } = await api.updateParagraph(pageId, paraId);
 

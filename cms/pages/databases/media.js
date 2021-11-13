@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-
-import { Button, Section } from 'chansencode-lib';
 import { MediaDB } from '@/domain';
 
-import css from './media.module.scss';
-
 const media = ({ meta, setMeta }) => {
+  const propStyle = {
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+  };
   return (
-    <Section flex padding="0" minHeight="100vh" maxHeight="100vh">
-      <MediaDB />
-    </Section>
+    <div style={propStyle}>
+      <MediaDB meta={meta} />
+    </div>
   );
 };
 

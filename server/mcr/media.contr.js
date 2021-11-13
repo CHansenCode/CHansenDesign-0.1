@@ -1,9 +1,9 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import mongoose from 'mongoose';
 
-import Media from "./media.model.js";
+import Media from './media.model.js';
 const model = Media;
-import { mediaValidation } from "./media.valid.js";
+import { mediaValidation } from './media.valid.js';
 
 const router = express.Router();
 
@@ -35,7 +35,7 @@ export const createMediaPost = async (req, res) => {
   try {
     await mediaValidation.validateAsync(data);
   } catch (error) {
-    return res.status(400).send(error.details[0].message);
+    return res.status(400).send('validation error');
   }
 
   try {
@@ -51,7 +51,8 @@ export const updateMediaPost = async (req, res) => {
   const { id } = req.params;
   const reqData = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
 
   try {
     await model.findByIdAndUpdate(id, reqData, { new: true });
@@ -65,11 +66,12 @@ export const updateMediaPost = async (req, res) => {
 export const deleteMediaPost = async (req, res) => {
   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
 
   await model.findByIdAndRemove(id);
 
-  res.json({ message: "Project deleted successfully." });
+  res.json({ message: 'Project deleted successfully.' });
 };
 
 export default router;

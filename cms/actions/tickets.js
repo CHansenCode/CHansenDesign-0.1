@@ -1,8 +1,13 @@
-import { GET_TICKETS, CREATE_TICKET, UPDATE_TICKET, DELETE_TICKET } from "../actions/actionTypes";
+import {
+  GET_TICKETS,
+  CREATE_TICKET,
+  UPDATE_TICKET,
+  DELETE_TICKET,
+} from './actionTypes';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getTickets = () => async (dispatch) => {
+export const getTickets = () => async dispatch => {
   try {
     const { data } = await api.getTickets();
 
@@ -12,7 +17,7 @@ export const getTickets = () => async (dispatch) => {
   }
 };
 
-export const createTicket = (formData) => async (dispatch) => {
+export const createTicket = formData => async dispatch => {
   try {
     const { data } = await api.createTicket(formData);
 
@@ -22,7 +27,7 @@ export const createTicket = (formData) => async (dispatch) => {
   }
 };
 
-export const patchTicket = (formData, id) => async (dispatch) => {
+export const patchTicket = (formData, id) => async dispatch => {
   try {
     const { data } = await api.patchTicket(formData, id);
 
@@ -32,7 +37,7 @@ export const patchTicket = (formData, id) => async (dispatch) => {
   }
 };
 
-export const deleteTicket = (id) => async (dispatch) => {
+export const deleteTicket = id => async dispatch => {
   try {
     const { data } = await api.deleteTicket(id);
 

@@ -1,4 +1,9 @@
-import { GET_TICKETS, CREATE_TICKET, UPDATE_TICKET, DELETE_TICKET } from "../../actions/base.actionTypes";
+import {
+  GET_TICKETS,
+  CREATE_TICKET,
+  UPDATE_TICKET,
+  DELETE_TICKET,
+} from '@/actions/actionTypes';
 
 const tickets = (tickets = initialProps, action) => {
   switch (action.type) {
@@ -7,9 +12,11 @@ const tickets = (tickets = initialProps, action) => {
     case CREATE_TICKET:
       return [...tickets, action.payload];
     case UPDATE_TICKET:
-      return tickets.map((ticket) => (ticket._id === action.payload._id ? action.payload : ticket));
+      return tickets.map(ticket =>
+        ticket._id === action.payload._id ? action.payload : ticket,
+      );
     case DELETE_TICKET:
-      return tickets.filter((tickets) => tickets._id === action.payload);
+      return tickets.filter(tickets => tickets._id === action.payload);
     default:
       return tickets;
   }

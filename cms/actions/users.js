@@ -1,10 +1,16 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { GET_USERS, CREATE_USER, GET_USER, UPDATE_USER, DELETE_USER } from "../actions/actionTypes";
+import {
+  GET_USERS,
+  CREATE_USER,
+  GET_USER,
+  UPDATE_USER,
+  DELETE_USER,
+} from './actionTypes';
 
-import * as api from "../api";
+import * as api from '../api';
 
-export const getUsers = () => async (dispatch) => {
+export const getUsers = () => async dispatch => {
   try {
     const { data } = await api.getUsers();
 
@@ -14,7 +20,7 @@ export const getUsers = () => async (dispatch) => {
   }
 };
 
-export const createTicket = (post) => async (dispatch) => {
+export const createTicket = post => async dispatch => {
   try {
     const { data } = await api.createTicket();
 
@@ -24,7 +30,7 @@ export const createTicket = (post) => async (dispatch) => {
   }
 };
 
-export const getUser = (id) => async (dispatch) => {
+export const getUser = id => async dispatch => {
   try {
     const { data } = await api.getUser(id);
 
@@ -32,7 +38,7 @@ export const getUser = (id) => async (dispatch) => {
   } catch (error) {}
 };
 
-export const patchUser = (formData, id) => async (dispatch) => {
+export const patchUser = (formData, id) => async dispatch => {
   try {
     const { data } = await api.patchUser(formData, id);
 
@@ -42,7 +48,7 @@ export const patchUser = (formData, id) => async (dispatch) => {
   }
 };
 
-export const deleteUser = (id) => async (dispatch) => {
+export const deleteUser = id => async dispatch => {
   try {
     const { data } = await axios.deleteUser(id);
 

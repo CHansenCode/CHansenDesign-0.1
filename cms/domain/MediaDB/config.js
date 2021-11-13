@@ -1,8 +1,5 @@
-import { mediaServer } from '@/config';
-
-export const meta = {
+export const formMeta = {
   title: 'Media DataBase editor',
-  server: mediaServer,
 };
 
 const mediaModel = {
@@ -15,12 +12,12 @@ const mediaModel = {
   category: '',
   project: '',
   drawingType: '',
-  tags: [],
-  programs: [],
+  tags: ['', ''],
+  programs: ['', ''],
 
   //advanced options
-  scale: 0,
-  northRotation: 0,
+  scale: 0, //any
+  northRotation: 0 - 360,
 
   src: {
     url: 'https://media.chansen.design/category/project/filename.ext',
@@ -54,16 +51,12 @@ export const formConstructor = {
       type: 'textarea',
       rows: 3,
     },
-    {
-      label: 'filename',
-      key: 'filename',
-      type: 'input',
-    },
+
     {
       label: 'category',
       key: 'category',
       type: 'select',
-      options: ['Architecture', 'Webdesign', 'Graphics'],
+      options: ['architecture', 'webdesign', 'graphics'],
     },
     {
       label: 'project',
@@ -80,6 +73,12 @@ export const formConstructor = {
     },
   ],
   advanced: [
+    {
+      label: 'filename',
+      key: 'src.filename',
+      nested: true,
+      type: 'input',
+    },
     {
       label: 'description',
       key: 'description',

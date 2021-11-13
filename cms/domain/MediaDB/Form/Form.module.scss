@@ -1,95 +1,66 @@
+.wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.scrollable {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .form {
-  background-color: #fff;
+  position: relative;
+  height: auto;
   min-height: 100vh;
+  width: 100%;
+
   padding: 2rem;
+
   display: grid;
   grid-template:
     'header' 6rem
     'basic' 1fr
     'advanced' auto
     'footer' auto / 1fr;
-  overflow: auto;
-  border-left: thin solid;
-  margin-left: -1px;
-  input {
-    border: thin solid currentColor !important;
-    box-shadow: transparent;
-    outline: transparent !important;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    .title {
-      h4 {
-        padding-left: 1rem;
-        color: coral;
-      }
-    }
-    .image {
-      > img {
-        height: 8rem;
-      }
+}
+
+.form .header {
+  display: flex;
+  justify-content: space-between;
+  .title {
+    h4 {
+      padding-left: 1rem;
+      color: coral;
     }
   }
-  .saveButton {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
+  .image {
+    > img {
+      height: 8rem;
+    }
   }
 }
 
-.form .closeButton {
+.form .saveButton {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.showCloseBtn {
   position: absolute;
-  top: 1rem;
-  left: -1rem;
-  background-color: #fff;
-  white-space: nowrap;
-  border-radius: 50%;
-}
-
-.foldable {
-  overflow: hidden;
-  height: 2rem;
-  border: thin dashed;
-  border-radius: 0.5rem;
-
+  z-index: 100;
+  top: 2.5rem;
+  transition: 0.5s ease;
   > button {
-    height: 2rem;
-    width: 100%;
-    padding: 0 0.5rem;
-    border: transparent;
-    h5 {
-      margin-right: 1rem;
-      font-weight: 700;
-    }
-    svg {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
+    border-radius: 50%;
   }
-}
-.foldable_open {
-  height: auto;
-  padding: 1rem;
-  background-color: rgba(0, 70, 90, 0.1);
 }
 
-.select {
-  position: relative;
-  overflow: hidden;
-  padding: 0.5rem 0;
-  .options {
-    display: flex;
-    flex-wrap: wrap;
-    > button {
-      border: thin dashed currentColor;
-      border-radius: 0.5rem;
-      padding: 0.25rem 0.4rem !important;
-      margin: 0.25rem !important;
-    }
-    .selected {
-      box-shadow: inset 0 0 2rem -1.2rem coral;
-      border: thin solid;
-    }
-  }
+.form input,
+.form textarea {
+  background-color: transparent;
+  border: thin solid currentColor !important;
+  box-shadow: transparent;
+  outline: transparent !important;
 }

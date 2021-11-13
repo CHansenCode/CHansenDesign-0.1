@@ -1,4 +1,8 @@
-import { GET_STATISTICS, UPDATE_STATISTICS, DELETE_STATISTICS } from "../../actions/base.actionTypes";
+import {
+  GET_STATISTICS,
+  UPDATE_STATISTICS,
+  DELETE_STATISTICS,
+} from '@/actions/actionTypes';
 
 const statistics = (statistics = initialProps, action) => {
   switch (action.type) {

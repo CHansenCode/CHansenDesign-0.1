@@ -1,1 +1,1 @@
-export * from './localUser';
+export * from './useHasMounted';

@@ -2,7 +2,7 @@ import {
   GET_CONTACT_FORM_POSTS,
   POST_CONTACT_FORM_POST,
   DELETE_CONTACT_FORM_POST,
-} from "../../actions/base.actionTypes";
+} from '@/actions/actionTypes';
 
 const contact = (contactPosts = initialProps, action) => {
   switch (action.type) {
@@ -11,7 +11,7 @@ const contact = (contactPosts = initialProps, action) => {
     case POST_CONTACT_FORM_POST:
       return [...contactPosts, action.payload];
     case DELETE_CONTACT_FORM_POST:
-      return contactPosts.filter((post) => post._id === action.payload);
+      return contactPosts.filter(post => post._id === action.payload);
     default:
       return contactPosts;
   }

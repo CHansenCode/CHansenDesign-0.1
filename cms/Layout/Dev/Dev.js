@@ -5,7 +5,7 @@ import ObjectViewer from '../../components/ObjectViewer/ObjectViewer';
 
 import css from './Dev.module.scss';
 
-const Dev = () => {
+const Dev = ({ meta, setMeta }) => {
   const [show, setShow] = useState(false);
   const store = useSelector(state => state);
   return (
@@ -16,7 +16,8 @@ const Dev = () => {
 
       <div className={`${css.outerDiv} ${show ? css.outerDiv_open : null}`}>
         <div className={css.innerDiv}>
-          <ObjectViewer data={store} />
+          <ObjectViewer title="redux.store" data={store} />
+          <ObjectViewer title="[meta, setMeta]" data={meta} />
         </div>
       </div>
     </>

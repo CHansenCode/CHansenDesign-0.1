@@ -67,6 +67,4 @@ export const Button = ({
 
 Button.defaultProps = {
   fontSize: '16px',
-  padding: '0.5rem 0.75rem',
-  margin: '0',
 };

@@ -1,0 +1,20 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+}
+.time {
+  border: thin solid;
+
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  border-radius: 0.5rem;
+
+  display: flex;
+}

@@ -4,9 +4,9 @@ import {
   GET_MEDIA_POST,
   UPDATE_MEDIA,
   DELETE_MEDIA,
-} from '../actions/base.actionTypes';
-import * as api from '../api';
-import { localUser } from '@/hooks';
+} from './actionTypes';
+
+import * as api from '@/api';
 import { mediaServer } from '@/config';
 
 export const getMedia = () => async dispatch => {
@@ -20,50 +20,46 @@ export const getMedia = () => async dispatch => {
 };
 
 export const createMedia = formData => async dispatch => {
-  const filename = formData.title + '.jpg';
-  const category = formData.category;
-  const project = formData.project;
+  let category = formData.category ? `${formData.category}/` : '';
+  let project = formData.project ? `${formData.project}/` : '';
+  let fullUrl = `${mediaServer}/${category}${project}${formData.filename}`;
 
-  category && category == category + '/';
-  project && project == project + '/';
-
-  const localToken = localStorage.getItem('jwt-token');
-
-  const dataPost = {
+  let postData = {
     title: formData.title,
+    alt: formData.alt,
     description: formData.description,
-    excerpt: '',
+    excerpt: formData.excerpt,
+
     scale: formData.scale,
     northRotation: formData.northRotation,
 
-    alt: formData.alt,
-
     category: formData.category,
-    drawingType: formData.drawingType,
     project: formData.project,
-    stage: formData.stage,
-    tags: formData.tags,
-    programs: formData.tags,
-
+    stage: '',
+    drawingType: '',
+    tags: [],
     src: {
-      full: `${mediaServer}/${category}${project}${filename}`,
-      filename: filename,
-      url_original: '',
-      url_3200: '',
-      url_1600: '',
-      url_800: '',
-      url_400: '',
+      filename: formData.filename,
     },
-    createdBy: localUser(),
+
+    // src: {
+    //   url: fullUrl,
+    //   filename: formData.filename,
+    //   url_original: fullUrl,
+    //   url_3200: `${mediaServer}/${category}${project}/3200`,
+    //   url_1600: `${mediaServer}/${category}${project}/1600`,
+    //   url_800: `${mediaServer}/${category}${project}/800`,
+    //   url_400: `${mediaServer}/${category}${project}/400`,
+    // },
   };
 
   try {
-    // const { data } = await api.createMedia(formData);
-    console.log(dataPost);
+    const { data } = await api.createMedia(postData);
 
-    // dispatch({ type: CREATE_MEDIA, payload: data });
+    console.log(postData);
   } catch (error) {
     console.log(error.message);
+    console.log(postData);
   }
 };
 

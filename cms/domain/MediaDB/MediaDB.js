@@ -3,19 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Form, View, Header } from './';
 import { Button } from 'chansencode-lib';
-import { mediaServer } from '@/config';
 
-import { formConstructor } from './config';
-
-import {
-  getMedia,
-  createMedia,
-  updateMedia,
-} from '../../actions/media.actions';
+import { getMedia, createMedia, updateMedia } from '@/actions';
 
 import css from './style.module.scss';
 
-export const MediaDB = () => {
+export const MediaDB = ({ meta }) => {
   const dispatch = useDispatch();
 
   const [showForm, setShowForm] = useState(false);
@@ -26,8 +19,9 @@ export const MediaDB = () => {
     title: '',
     alt: '',
     description: '',
+    filename: '',
 
-    category: '',
+    category: [],
     project: '',
     drawingType: '',
     tags: [],
@@ -37,10 +31,15 @@ export const MediaDB = () => {
     scale: 0,
     northRotation: 0,
 
-    url: '',
+    src: {
+      url: '',
+      filename: '',
+      url_3200: '',
+      url_1600: '',
+      url_800: '',
+      url_400: '',
+    },
   });
-
-  const formDataConstruct = {};
 
   useEffect(() => {
     dispatch(getMedia());
@@ -49,8 +48,9 @@ export const MediaDB = () => {
   const selectedPost = useSelector(state =>
     activeId ? state.media.find(mediaPost => mediaPost._id === activeId) : null,
   );
+
   useEffect(() => {
-    selectedPost && setFormData(selectedPost);
+    selectedPost && setFormData({ ...formData, ...selectedPost });
   }, [selectedPost]);
 
   function clear() {
@@ -60,6 +60,7 @@ export const MediaDB = () => {
       title: '',
       alt: '',
       description: '',
+      filename: '',
 
       //indexing
       category: '',
@@ -80,13 +81,17 @@ export const MediaDB = () => {
     activeId ? dispatch(updateMedia) : dispatch(createMedia(formData));
   }
 
+  async function onClose() {
+    setActiveId(null);
+    setShowForm(false);
+    clear();
+  }
+
   const mediaData = useSelector(state => state.media);
 
   return (
     <div className={css.main}>
       <header className={css.header}>
-        {formData.url}
-        {formData.category}
         <Header
           setView={setView}
           activeId={activeId}
@@ -96,34 +101,28 @@ export const MediaDB = () => {
 
       <div className={css.view}>
         <View
+          meta={meta}
           data={mediaData}
           view={view}
           activeId={activeId}
           setActiveId={setActiveId}
+          formData={formData}
         />
       </div>
 
-      <>
-        <Button
-          text={activeId || showForm ? 'X' : '+ New Post'}
-          className={`${css.open_toggle_btn} ${
-            (activeId || showForm) && css.open_toggle_btn_formOpen
-          }`}
-          onClick={
-            activeId || showForm ? () => clear() : () => setShowForm(true)
-          }
-        />
-      </>
       <aside
         className={`${css.form_wrapper} ${
           (activeId || showForm) && css.form_open
         }`}
       >
         <Form
+          meta={meta}
           formData={formData}
           setFormData={setFormData}
           activeId={activeId}
-          onClose={() => clear()}
+          showForm={showForm}
+          onClose={() => onClose()}
+          onCreateNew={() => setShowForm(true)}
           handleSubmit={handleSubmit}
         />
       </aside>
