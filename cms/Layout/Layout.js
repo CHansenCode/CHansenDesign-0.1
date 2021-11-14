@@ -5,22 +5,19 @@ import Nav from './Nav/Nav';
 import Dev from './Dev/Dev';
 import Main from './Main';
 import { ClientOnly } from '@/components';
-
-import { ErrorMessage } from '@/domain';
 import { Login } from '@/domain';
+import { ErrorMessage } from '@/domain';
 
-import { storeRefresh, axiosUpdater } from '@/utils';
+import { userValidation, axiosConfig } from '@/utils';
 
 import { siteMeta } from '../config';
 
 import css from './Layout.module.scss';
 
 const Layout = ({ meta, setMeta, children }) => {
-  storeRefresh();
-
-  useEffect(() => {
-    axiosUpdater();
-  }, []);
+  //services
+  userValidation();
+  axiosConfig();
 
   const propStyle = {
     main: {
@@ -39,7 +36,7 @@ const Layout = ({ meta, setMeta, children }) => {
       </Head>
 
       {/* modals */}
-      {/* <ErrorMessage /> */}
+      <ErrorMessage meta={meta} />
 
       <ClientOnly>
         <Nav meta={meta} setMeta={setMeta} />

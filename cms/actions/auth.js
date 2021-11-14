@@ -1,4 +1,5 @@
 import jwtDecode from 'jwt-decode';
+import router from 'next/router';
 import * as actions from './actionTypes';
 import { authUser } from '../api';
 
@@ -15,6 +16,7 @@ export const onSubmitLoginUser = formData => dispatch => {
       dispatch(setCurrentUser(decoded.username));
       localStorage.setItem('auth-token', res.data.token);
       localStorage.setItem('username', decoded.username);
+      router.push('/');
     })
     .catch(err => {
       console.log(err);
@@ -34,6 +36,6 @@ export const setCurrentUser = data => {
 
 export const logoutUser = () => dispatch => {
   //
-  localStorage.removeItem('username');
+  localStorage.removeItem('auth-token');
   dispatch(setCurrentUser(null));
 };

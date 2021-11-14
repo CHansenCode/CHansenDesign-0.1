@@ -1,6 +1,56 @@
 .fixed {
   position: fixed;
-  min-height: 10rem;
-  min-width: 20rem;
-  background-color: #fff;
+  z-index: 999999999;
+  bottom: 2rem;
+  left: -20vw;
+  height: 5rem;
+  width: 1rem;
+  border: thin solid lightcoral;
+  border-radius: 2rem;
+
+  padding-left: 1.5rem;
+  padding-right: 2rem;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  opacity: 0;
+
+  transition: 0.4s ease;
+  * {
+    transition: 0.4s ease;
+  }
+}
+.icon {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 2rem;
+
+  background-color: transparent;
+  border: thin dashed currentColor;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon:hover {
+  cursor: pointer;
+  border: thin solid;
+  box-shadow: inset 0 0 1rem -0.5rem currentColor;
+  transition: 0.2s ease;
+  color: red !important;
+}
+.text {
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+}
+.hasError {
+  opacity: 1;
+  width: min-content;
+
+  bottom: 2rem;
+  left: 2rem;
 }

@@ -11,34 +11,27 @@ import css from './style.module.scss';
 export const MediaDB = ({ meta }) => {
   const dispatch = useDispatch();
 
+  const [activeId, setActiveId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [view, setView] = useState('list');
-  const [activeId, setActiveId] = useState(null);
   const [formData, setFormData] = useState({
     //basic
     title: '',
     alt: '',
     description: '',
-    filename: '',
 
-    category: [],
+    category: '',
     project: '',
-    drawingType: '',
-    tags: [],
-    programs: [],
 
-    //advanced
+    drawingType: '',
     scale: 0,
     northRotation: 0,
 
-    src: {
-      url: '',
-      filename: '',
-      url_3200: '',
-      url_1600: '',
-      url_800: '',
-      url_400: '',
-    },
+    tags: [],
+    programs: [],
+
+    filename: '',
+    createdBy: '',
   });
 
   useEffect(() => {
@@ -50,7 +43,7 @@ export const MediaDB = ({ meta }) => {
   );
 
   useEffect(() => {
-    selectedPost && setFormData({ ...formData, ...selectedPost });
+    selectedPost && setFormData({ ...selectedPost });
   }, [selectedPost]);
 
   function clear() {
@@ -60,25 +53,26 @@ export const MediaDB = ({ meta }) => {
       title: '',
       alt: '',
       description: '',
-      filename: '',
 
-      //indexing
       category: '',
       project: '',
-      drawingType: '',
-      tags: [],
-      programs: [],
 
-      //advanced options
+      drawingType: '',
       scale: 0,
       northRotation: 0,
 
-      url: '',
+      tags: [],
+      programs: [],
+
+      filename: '',
+      createdBy: '',
     });
   }
 
   async function handleSubmit() {
-    activeId ? dispatch(updateMedia) : dispatch(createMedia(formData));
+    activeId
+      ? dispatch(updateMedia(formData))
+      : dispatch(createMedia(formData));
   }
 
   async function onClose() {

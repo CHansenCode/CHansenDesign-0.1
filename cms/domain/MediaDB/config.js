@@ -3,42 +3,29 @@ export const formMeta = {
 };
 
 const mediaModel = {
-  title: 'test2',
+  title: '',
   alt: '',
-  excerpt: '',
-  description: 'explanation of the graphical imagery submitted',
+  description: '',
 
-  //indexing
   category: '',
   project: '',
-  drawingType: '',
-  tags: ['', ''],
-  programs: ['', ''],
 
-  //advanced options
+  drawingType: '',
   scale: 0, //any
   northRotation: 0 - 360,
 
-  src: {
-    url: 'https://media.chansen.design/category/project/filename.ext',
-    filename: 'filename',
-    url_original: './original',
-    url_3200: './3200',
-    url_1600: './1600',
-    url_800: './800',
-    url_400: './400',
-  },
+  tags: ['', ''],
+  programs: ['', ''],
+
+  url: '',
+  filename: '',
+
+  createdBy: '',
+  createdAt: '',
 };
 
 //#region constructors
 export const formConstructor = {
-  //   {
-  //     label: 'example',
-  //     infoHover: 'min 3 chars',
-  //     type: 'input',
-  //     rows: 3,
-  //     options: [],
-  //   },
   basic: [
     {
       label: 'title',
@@ -51,7 +38,11 @@ export const formConstructor = {
       type: 'textarea',
       rows: 3,
     },
-
+    {
+      label: 'filename',
+      key: 'filename',
+      type: 'input',
+    },
     {
       label: 'category',
       key: 'category',
@@ -74,12 +65,6 @@ export const formConstructor = {
   ],
   advanced: [
     {
-      label: 'filename',
-      key: 'src.filename',
-      nested: true,
-      type: 'input',
-    },
-    {
       label: 'description',
       key: 'description',
       type: 'textarea',
@@ -98,6 +83,11 @@ export const formConstructor = {
     {
       label: 'drawingType',
       key: 'drawingType',
+      type: 'input',
+    },
+    {
+      label: 'created by',
+      key: 'createdBy',
       type: 'input',
     },
   ],

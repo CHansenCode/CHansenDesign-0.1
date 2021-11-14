@@ -35,7 +35,7 @@ export const createMediaPost = async (req, res) => {
   try {
     await mediaValidation.validateAsync(data);
   } catch (error) {
-    return res.status(400).send('validation error');
+    return res.status(400).send(error);
   }
 
   try {

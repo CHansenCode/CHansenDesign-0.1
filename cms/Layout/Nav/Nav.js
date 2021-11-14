@@ -3,9 +3,12 @@ import Lists from './Lists/Lists';
 import Header from './Header/Header';
 
 import css from './Nav.module.scss';
+import axios from 'axios';
 
 const Nav = ({ meta, setMeta }) => {
+  //
   let user = window.localStorage.getItem('auth-token');
+  axios.defaults.headers.auth = window.localStorage.getItem('auth-token');
 
   const propStyle = {
     aside: {

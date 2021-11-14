@@ -2,13 +2,7 @@ import { ListHeader, List, Item } from './';
 
 import css from './View.module.scss';
 
-import ObjectViewer from '@/components/ObjectViewer/ObjectViewer';
-
-export const View = ({ meta, data, view, setActiveId, formData }) => {
-  function sortBy(e) {
-    e.preventDefault();
-  }
-
+export const View = ({ meta, data, view, setActiveId }) => {
   return (
     <div className={`${css.main}`}>
       <ListHeader meta={meta} view={view} />
@@ -24,7 +18,6 @@ export const View = ({ meta, data, view, setActiveId, formData }) => {
           />
         ))}
       </List>
-      <ObjectViewer data={formData} />
     </div>
   );
 };
